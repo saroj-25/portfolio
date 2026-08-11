@@ -33,8 +33,15 @@ export default function AITerminal() {
   const scrollToBottom = () => {
     terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+  // Track first render to avoid auto‑scroll on page load
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      // Skip scrolling on initial mount
+      isFirstRender.current = false;
+      return;
+    }
     scrollToBottom();
   }, [logs]);
 

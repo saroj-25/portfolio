@@ -59,6 +59,9 @@ export default function About() {
           <p className="mt-4 text-slate-400 max-w-2xl text-base sm:text-lg">
             Founder & CEO of Kritim Mind Technology, Tribhuvan University CSIT Topper, and Adjunct Lecturer of Computer Science.
           </p>
+          <p className="mt-2 text-slate-400 max-w-2xl text-base sm:text-lg">
+            Eager for research collaborations and opportunities.
+          </p>
         </div>
 
         {/* 4 Core Pillars Grid */}
