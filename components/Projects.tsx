@@ -19,7 +19,7 @@ export default function Projects() {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
 
-  const categories = ["All", "AI & ML", "Web Apps", "Full Stack", "Cloud & Systems"];
+  const categories = ["All", "AI & ML", "Web Apps", "Full Stack", "Cross-Platform", "Cloud & Systems"];
 
   const filteredProjects = PROJECTS.filter((project) => {
     const matchesCategory = selectedCategory === "All" || project.category === selectedCategory;

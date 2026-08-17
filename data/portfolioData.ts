@@ -13,7 +13,7 @@ export interface Project {
   tagline: string;
   description: string;
   fullDescription: string;
-  category: 'Web Apps' | 'AI & ML' | 'Full Stack' | 'Cross-Platform';
+  category: 'Web Apps' | 'AI & ML' | 'Full Stack' | 'Cross-Platform' | 'Cloud & Systems';
   tags: string[];
   image: string;
   liveUrl?: string;
@@ -53,14 +53,15 @@ export interface FAQItem {
 
 export const PERSONAL_INFO = {
   name: "Saroj Bhandari",
-  roleTitle: "Founder & CEO | Software Developer & AI Specialist",
+  roleTitle: "Founder & CEO | NLP & LLM Researcher | AI Specialist",
   taglines: [
     "Founder & CEO @ Kritim Mind Technology",
+    "Researcher in NLP, LLMs & Retrieval-Augmented Generation",
     "TU Topper B.Sc. CSIT (92.4% Final Sem / 85.57% Overall)",
     "Software Developer & AI/ML Engineer",
     "Adjunct CS Lecturer (AI, DSA, DBMS, Algorithms)"
   ],
-  bio: "Software Developer, AI/ML Specialist, and Founder & CEO of Kritim Mind Technology Pvt. Ltd. Tribhuvan University CSIT Topper (85.57% overall, 92.4% final sem). Passionate about Agentic AI, RAG, full-stack systems, Flutter cross-platform apps, and educating the next generation of CS engineers.",
+  bio: "Software Developer, AI/ML Specialist, NLP & LLM Researcher, and Founder & CEO of Kritim Mind Technology Pvt. Ltd. Tribhuvan University CSIT Topper (85.57% overall, 92.4% final sem). Passionate about Natural Language Processing, Large Language Models, Agentic AI, RAG, full-stack systems, and educating the next generation of CS engineers.",
   location: "Melung-7, Dolakha / Kathmandu, Nepal",
   phone: "(+977) 9844266088",
   email: "sarosebhandari100@gmail.com",
@@ -68,7 +69,7 @@ export const PERSONAL_INFO = {
   linkedin: "https://linkedin.com/in/sarojbhandari17",
   twitter: "https://github.com/saroj-25",
   status: "Founder & CEO @ Kritim Mind Technology | Open for Technical Consultations",
-  availability: "Available for Consultations, AI Architecture & Research",
+  availability: "Available for NLP/LLM Research, Consultations & AI Architecture",
   companyWebsite: "https://www.kritimmind.com"
 };
 
@@ -182,6 +183,81 @@ export const PROJECTS: Project[] = [
       "RESTful API server with database query optimizations for high-concurrency exams"
     ],
     date: "2024"
+  },
+  {
+    id: "mirayas-construction-platform",
+    title: "Mirayas.com",
+    tagline: "Full-Stack Web Platform for Construction & Building Materials Company",
+    description: "Designed and developed a professional web platform for Mirayas, a construction and building materials company. Built a responsive, SEO-optimized website with product catalogs, company information, and client inquiry systems.",
+    fullDescription: "Mirayas.com is a comprehensive business web platform built to showcase construction materials and building products. The site features a dynamic product catalog, company portfolio, contact and inquiry management, and a modern responsive design optimized for both mobile and desktop users.",
+    category: "Web Apps",
+    tags: ["React JS", "Node.js", "REST APIs", "Responsive Design", "SEO", "UI/UX"],
+    image: "/projects/mirayas.png",
+    liveUrl: "https://miraiys.com/",
+    featured: false,
+    metrics: "Fully responsive business platform serving international clients",
+    keyFeatures: [
+      "Dynamic Product Catalog & Category Management",
+      "Mobile-First Responsive Design with Modern UI/UX",
+      "SEO-Optimized Pages for Search Engine Visibility",
+      "Client Inquiry & Contact Management System"
+    ],
+    architecture: [
+      "React JS frontend with component-based architecture",
+      "Node.js backend with RESTful API endpoints",
+      "Responsive design with mobile-first approach"
+    ],
+    date: "2024"
+  },
+  {
+    id: "aadim-college-ai-chatbot",
+    title: "Aadim College AI Chatbot",
+    tagline: "RAG-Powered Intelligent Chatbot for College Information & Student Queries",
+    description: "Built an AI-powered chatbot for Aadim National College using Retrieval-Augmented Generation (RAG) to answer student queries about admissions, courses, faculty, and college policies with contextual accuracy.",
+    fullDescription: "The Aadim College AI Chatbot leverages RAG architecture with vector embeddings and LLM inference to provide accurate, context-aware responses to student and visitor questions. It ingests college documentation, course catalogs, admission guidelines, and faculty information to deliver real-time intelligent assistance.",
+    category: "AI & ML",
+    tags: ["Python", "RAG", "LangChain", "FAISS", "LLM", "NLP", "Vector Database"],
+    image: "/projects/aadim-chatbot.png",
+    liveUrl: "https://aadimcollege.edu.np",
+    featured: true,
+    metrics: "Serves real-time AI-driven responses for Aadim National College students & visitors",
+    keyFeatures: [
+      "RAG-Powered Contextual Question Answering",
+      "Vector Embeddings with FAISS for Document Retrieval",
+      "LangChain-Based LLM Pipeline for Natural Language Understanding",
+      "Covers Admissions, Courses, Faculty & College Policies"
+    ],
+    architecture: [
+      "Python backend with LangChain orchestration framework",
+      "FAISS vector database for high-speed document similarity search",
+      "LLM inference layer for natural language generation"
+    ],
+    date: "2025"
+  },
+  {
+    id: "pahadi-research-cloud-platform",
+    title: "Pahadi Research Cloud Platform",
+    tagline: "Enterprise Cloud Infrastructure & Data Processing Systems for US-Based Research Firm",
+    description: "Developed cloud-based infrastructure and data processing systems for PAHADI RESEARCH LLC (Seattle, WA, USA). Built scalable APIs, automated data workflows, and cloud-hosted services for research operations.",
+    fullDescription: "As part of the engineering team at Pahadi Research LLC, designed and implemented cloud infrastructure solutions including scalable REST APIs, automated data processing pipelines, database management systems, and cloud-deployed services that power the company's research and technology operations across multiple client engagements.",
+    category: "Cloud & Systems",
+    tags: ["Python", "C# / .NET", "Cloud", "REST APIs", "MySQL", "Docker", "Git"],
+    image: "/projects/pahadi-cloud.png",
+    liveUrl: "https://pahadi.net",
+    featured: false,
+    metrics: "Enterprise-grade cloud systems powering US-headquartered research operations",
+    keyFeatures: [
+      "Scalable REST API Architecture for Multi-Client Environments",
+      "Automated Data Processing & ETL Workflows",
+      "Cloud-Hosted Services with Docker Containerization",
+      "Database Optimization & Query Performance Tuning"
+    ],
+    architecture: [
+      "Python & C# / .NET backend services",
+      "Docker containerized deployment pipeline",
+      "MySQL database with optimized query patterns"
+    ],
+    date: "2023"
   }
 ];
 
@@ -316,9 +392,10 @@ export const TERMINAL_COMMANDS: Record<string, string> = {
   • education  : Academic record (TU Topper 92.4%)
   • contact    : Email, Phone & Social links
   • clear      : Clear terminal display`,
-  
+
   bio: `Saroj Bhandari
 Founder & CEO @ Kritim Mind Technology Pvt. Ltd.
+Researcher in NLP, LLMs & Retrieval-Augmented Generation (RAG)
 Adjunct Lecturer in Computer Science (Texas Int'l & Aadim National College)
 TU B.Sc. CSIT Topper (85.57% Overall, 92.4% 8th Semester)
 Contact: sarosebhandari100@gmail.com | (+977) 9844266088`,
@@ -328,19 +405,22 @@ Founder & CEO: Saroj Bhandari
 Location: Kathmandu, Nepal
 Website : https://www.kritimmind.com
 Focus   : AI/ML engineering, Agentic Systems, RAG workflows, and enterprise software products.`,
-  
+
   skills: `Technical Stack:
   • Programming: Python, C, C++, Java, C#
   • Frameworks  : Flutter, .NET Core, Spring, Django, LangChain, React JS
   • AI & ML     : Artificial Intelligence, Machine Learning, RAG, Agentic AI
   • Databases   : FAISS Vector DB, MySQL, MongoDB, Oracle
   • Core CS     : Data Structures & Algorithms, DBMS, OOP, Linear Algebra`,
-  
+
   projects: `Featured Projects:
   1. Kritim Mind Tech Platform (https://www.kritimmind.com)
   2. Flight Fare Prediction System (https://github.com/saroj-17/FlightFarePredectionSystem)
-  3. Kritimguru MCQ Platform (https://kritimguru.com)`,
-  
+  3. Kritimguru Cross-Platform MCQ App (https://kritimguru.com)
+  4. Mirayas.com - Construction & Building Materials Platform (https://miraiys.com)
+  5. Aadim College AI Chatbot - RAG-Powered Student Query System
+  6. Pahadi Research Cloud Platform - Enterprise Cloud & Data Systems (https://pahadi.net)`,
+
   education: `Academic Honors:
   • B.Sc. CSIT - Tribhuvan University (Orchid Int'l College): 85.57% Overall
   • 8th Semester TU Topper: 92.4%

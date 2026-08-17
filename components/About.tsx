@@ -28,8 +28,8 @@ export default function About() {
     },
     {
       icon: BrainCircuit,
-      title: "AI/ML & RAG Systems",
-      description: "Specialist in Machine Learning, Agentic AI Systems, FAISS Vector Databases & LangChain."
+      title: "NLP & LLM Research",
+      description: "Researcher in Natural Language Processing, Large Language Models, RAG & Agentic AI Systems."
     },
     {
       icon: GraduationCap,
@@ -54,10 +54,10 @@ export default function About() {
             <span>KNOW SAROJ BHANDARI</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-100 tracking-tight">
-            Founder, Software Engineer & <span className="gradient-text-blue">AI Specialist</span>
+            Founder, NLP Researcher & <span className="gradient-text-blue">AI Specialist</span>
           </h2>
           <p className="mt-4 text-slate-400 max-w-2xl text-base sm:text-lg">
-            Founder & CEO of Kritim Mind Technology, Tribhuvan University CSIT Topper, and Adjunct Lecturer of Computer Science.
+            Founder & CEO of Kritim Mind Technology, NLP & LLM Researcher, Tribhuvan University CSIT Topper, and Adjunct Lecturer of Computer Science.
           </p>
           <p className="mt-2 text-slate-400 max-w-2xl text-base sm:text-lg">
             Eager for research collaborations and opportunities.

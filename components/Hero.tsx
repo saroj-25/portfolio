@@ -59,7 +59,7 @@ export default function Hero() {
             {/* Top Pill */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-mono font-medium mb-6">
               <Sparkles className="w-3.5 h-3.5 text-sky-400 animate-spin" style={{ animationDuration: '8s' }} />
-              <span>Full-Stack & AI Systems Architect</span>
+              <span>NLP & LLM Researcher · AI Systems Architect</span>
             </div>
 
             {/* Main Title */}
