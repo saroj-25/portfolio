@@ -1,3 +1,8 @@
-export const dynamic = "force-static";
 import type { MetadataRoute } from "next";
-export default function sitemap(): MetadataRoute.Sitemap {return [{url:"https://sarojbhandari100.com.np",changeFrequency:"monthly",priority:1}];}
+import { SITE_URL } from "@/data/seo";
+
+export const dynamic = "force-static";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [{ url: `${SITE_URL}/`, images: [`${SITE_URL}/image/profile.webp`] }];
+}

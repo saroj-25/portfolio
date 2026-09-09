@@ -2,20 +2,19 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Geist } from "next/font/google";
 import { MotionProvider } from "@/components/Motion";
+import { SITE_URL, SITE_TITLE, SITE_DESCRIPTION } from "@/data/seo";
 const geist = Geist({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-geist",
 });
-const title = "Saroj Bhandari — Software Engineer, AI/ML Researcher & Educator";
-const description =
-  "Software engineer, AI/ML researcher, educator, and entrepreneur based in Nepal. Explore Saroj Bhandari’s work in RAG, NLP, intelligent software systems, and education.";
+const title = SITE_TITLE;
+const description = SITE_DESCRIPTION;
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sarojbhandari100.com.np"),
+  metadataBase: new URL(SITE_URL),
   title,
   description,
   authors: [{ name: "Saroj Bhandari" }],
-  alternates: { canonical: "/" },
   openGraph: {
     title,
     description,
@@ -23,9 +22,22 @@ export const metadata: Metadata = {
     siteName: "Saroj Bhandari",
     type: "website",
     locale: "en_US",
+    images: [{ url: "/image/profile.jpeg", alt: "Saroj Bhandari" }],
   },
-  twitter: { card: "summary", title, description },
-  robots: { index: true, follow: true },
+  twitter: {
+    card: "summary",
+    title,
+    description,
+    images: [{ url: "/image/profile.jpeg", alt: "Saroj Bhandari" }],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+  },
 };
 export default function RootLayout({
   children,

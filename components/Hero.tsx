@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
+import { SCHOLAR_URL } from "@/data/seo";
 import { RotatingText } from "./Motion";
 import KnowledgeNetwork from "./KnowledgeNetwork";
 
@@ -51,7 +52,7 @@ export default function Hero() {
             LinkedIn <ArrowUpRight size={13} />
           </a>
           <a
-            href="https://scholar.google.com/citations?user=OGF4reEAAAAJ&hl=en"
+            href={SCHOLAR_URL}
             target="_blank"
             rel="noopener noreferrer"
           >

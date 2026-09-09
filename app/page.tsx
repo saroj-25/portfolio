@@ -4,28 +4,11 @@ import Hero from "@/components/Hero";
 import PortfolioSections from "@/components/PortfolioSections";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import { PERSONAL_INFO } from "@/data/portfolioData";
+import type { Metadata } from "next";
+import { profileStructuredData } from "@/data/seo";
 
-const person = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Saroj Bhandari",
-  url: "https://sarojbhandari100.com.np",
-  jobTitle: [
-    "Software Engineer",
-    "AI/ML Researcher",
-    "Educator",
-    "Entrepreneur",
-  ],
-  sameAs: [PERSONAL_INFO.github, PERSONAL_INFO.linkedin],
-  knowsAbout: [
-    "Software Engineering",
-    "Retrieval-Augmented Generation",
-    "Natural Language Processing",
-    "Machine Learning",
-    "AI for Education",
-  ],
-  alumniOf: { "@type": "CollegeOrUniversity", name: "Tribhuvan University" },
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
 };
 
 export default function Home() {
@@ -34,7 +17,7 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(person).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(profileStructuredData).replace(/</g, "\\u003c"),
         }}
       />
       <a className="skip-link" href="#main">
@@ -78,7 +61,8 @@ export default function Home() {
               <em>curious thinking.</em>
             </p>
             <p>
-              I am a software engineer and educator interested in building
+              I’m Saroj Bhandari, a software engineer, AI/ML researcher and
+              educator based in Nepal. I’m interested in building
               intelligent systems and exploring how AI can solve practical
               problems.
             </p>
