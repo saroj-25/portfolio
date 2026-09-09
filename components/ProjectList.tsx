@@ -89,7 +89,7 @@ function ProjectVisual({ index }: { index: number }) {
             <circle
               key={i}
               cx={45 + i * 10}
-              cy={142 - i * 5.5 + Math.sin(i * 2) * 17}
+              cy={(142 - i * 5.5 + Math.sin(i * 2) * 17).toFixed(2)}
               r="2.5"
               fill="currentColor"
               opacity=".4"
