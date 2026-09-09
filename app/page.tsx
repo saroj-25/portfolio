@@ -1,39 +1,6 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Research from "@/components/Research";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
-import Projects from "@/components/Projects";
-import Experience from "@/components/Experience";
-import AITerminal from "@/components/AITerminal";
+import PortfolioSections from "@/components/PortfolioSections";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-
-export default function Home() {
-
-
-  return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden transition-colors duration-300">
-      {/* Fixed Navigation Bar */}
-      <Navbar theme={"dark"} />
-
-      {/* Main Content Flow */}
-      <main className="flex-grow">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <AITerminal />
-        <Research />
-        <Contact />
-      </main>
-
-      {/* Footer */}
-      <Footer />
-    </div>
-  );
-}
+export default function Home() {return <><a className="skip-link" href="#main">Skip to content</a><Navbar/><main id="main"><Hero/><section id="about" className="section container"><div className="section-label"><span>01 / BACKGROUND</span><h2>About Me</h2></div><div className="section-body"><p className="lead">At the intersection of software, research, and education.</p><p>I’m a software engineer, educator, researcher, and entrepreneur based in Nepal. My work connects practical software engineering with applied AI research and the classroom.</p><p>I graduated in 2023 with a B.Sc. CSIT from Tribhuvan University at Orchid International College, achieving 86% overall and 92.4% in the eighth semester — a Tribhuvan University topper.</p><p>I’m interested in artificial intelligence, machine learning, natural language processing, retrieval-augmented generation, data science, software engineering, and Nepali language AI.</p></div></section><PortfolioSections/><Contact/></main><Footer/></>;}

@@ -1,53 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
+const title = "Saroj Bhandari | Software Engineer, AI/ML Researcher & Educator";
+const description = "Software engineer, AI/ML researcher, educator, and entrepreneur based in Nepal. Explore Saroj Bhandari’s work in RAG, NLP, intelligent software systems, and education.";
 export const metadata: Metadata = {
-  title: "Saroj | Full-Stack & AI Engineer Portfolio",
-  description: "Personal portfolio of Saroj — Senior Full-Stack Developer & AI Engineer specializing in Next.js, React, TypeScript, Python FastAPI, LangChain, and RAG architectures.",
-  keywords: [
-    "Saroj",
-    "Portfolio",
-    "Full Stack Engineer",
-    "AI Engineer",
-    "Next.js Developer",
-    "React Developer",
-    "TypeScript",
-    "Python FastAPI",
-    "LangChain",
-    "Machine Learning"
-  ],
-  authors: [{ name: "Saroj" }],
-  openGraph: {
-    title: "Saroj | Full-Stack & AI Engineer Portfolio",
-    description: "Building Next-Gen Web Applications and Intelligent AI Systems.",
-    type: "website",
-  },
+ metadataBase: new URL("https://sarojbhandari100.com.np"), title, description,
+ authors: [{name:"Saroj Bhandari"}], alternates:{canonical:"/"},
+ openGraph:{title,description,url:"/",siteName:"Saroj Bhandari",type:"website",locale:"en_US"},
+ twitter:{card:"summary",title,description}, robots:{index:true,follow:true},
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark scroll-smooth`}
-    >
-      <body className="min-h-screen bg-[#090d16] text-slate-100 antialiased selection:bg-sky-500 selection:text-white">
-        {children}
-      </body>
-    </html>
-  );
-}
+export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {return <html lang="en"><body>{children}</body></html>;}
