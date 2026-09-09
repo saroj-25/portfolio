@@ -1,2 +1,19 @@
 import { PERSONAL_INFO } from "@/data/portfolioData";
-export default function Footer() {return <footer className="footer container"><div><p>© 2026 Saroj Bhandari</p><p>Software Engineer · AI/ML Researcher · Educator</p></div><nav aria-label="Social links"><a href={PERSONAL_INFO.github}>GitHub</a><a href={PERSONAL_INFO.linkedin}>LinkedIn</a><a href={`mailto:${PERSONAL_INFO.email}`}>Email</a><a href="#home" aria-label="Back to top">↑</a></nav></footer>;}
+export default function Footer() {
+  return (
+    <footer className="footer container">
+      <div>
+        <p>© 2026 Saroj Bhandari</p>
+        <p>Software Engineer · AI/ML Researcher · Educator</p>
+      </div>
+      <nav aria-label="Social links">
+        <a href={PERSONAL_INFO.github}>GitHub</a>
+        <a href={PERSONAL_INFO.linkedin}>LinkedIn</a>
+        <a href={`mailto:${PERSONAL_INFO.email}`}>Email</a>
+        <a href="#home" aria-label="Back to top">
+          ↑
+        </a>
+      </nav>
+    </footer>
+  );
+}

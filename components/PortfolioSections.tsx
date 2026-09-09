@@ -1,19 +1,311 @@
 import { ArrowUpRight } from "lucide-react";
-import { works, experience, skills, subjects, interests, publication } from "@/data/redesign";
+import {
+  works,
+  experience,
+  skills,
+  subjects,
+  interests,
+  publication,
+} from "@/data/redesign";
 import { PROJECTS } from "@/data/portfolioData";
 import type { ReactNode } from "react";
-function Section({id,number,label,title,children}:{id:string;number:string;label:string;title:string;children:ReactNode}) {return <section id={id} className="section container"><div className="section-label"><span>{number} / {label}</span><h2>{title}</h2></div><div className="section-body">{children}</div></section>;}
-function WorkLink({href,children}:{href:string|null;children:ReactNode}) {return href ? <a href={href}>{children} <ArrowUpRight size={13}/></a> : <span className="placeholder">{children} · link pending</span>;}
+import ProjectList from "./ProjectList";
+import { RotatingText } from "./Motion";
+
+function Section({
+  id,
+  number,
+  label,
+  title,
+  children,
+}: {
+  id: string;
+  number: string;
+  label: string;
+  title: string;
+  children: ReactNode;
+}) {
+  return (
+    <section id={id} className="section container" data-reveal>
+      <div className="section-label">
+        <span>
+          {number} / {label}
+        </span>
+        <h2>{title}</h2>
+      </div>
+      <div className="section-body">{children}</div>
+    </section>
+  );
+}
+
 export default function PortfolioSections() {
- const extra = PROJECTS.filter(p => ["aadim-college-ai-chatbot","kritim-mind-tech-platform","mirayas-construction-platform","pahadi-research-cloud-platform"].includes(p.id));
- return <>
- <Section id="work" number="02" label="SELECTED PROJECTS" title="Selected Work"><p className="section-intro">Software built for use. Research grounded in real questions.</p>{works.map((work,i)=><article key={work.title} className="work-entry"><div className="work-heading"><span className="work-index">0{i+1}</span><div><p className="entry-type">{work.kind}</p><h3>{work.title}</h3></div></div><p>{work.description}</p><dl className="work-meta"><div><dt>Technology</dt><dd>{work.technology || "To be added"}</dd></div><div><dt>My role</dt><dd>{work.role}</dd></div></dl><div className="entry-links"><WorkLink href={work.url}>View Project</WorkLink><WorkLink href={work.github}>GitHub</WorkLink>{work.paper && <WorkLink href={work.paper}>Paper</WorkLink>}</div></article>)}<details className="additional-work"><summary>More engineering &amp; AI work <span>+</span></summary><div>{extra.map(p=><article key={p.id} className="extra-project"><h3>{p.title}</h3><p>{p.description}</p><p className="small-note">{p.tags.join(" · ")}<br/>My role: Software development</p><div className="entry-links"><WorkLink href={p.liveUrl || null}>View Project</WorkLink><WorkLink href={p.githubUrl || null}>GitHub</WorkLink></div></article>)}<p className="small-note">AI / NLP / Computer Vision collection: further project titles, descriptions, roles, and links to be added.</p></div></details></Section>
- <Section id="research" number="03" label="QUESTIONS & EXPLORATION" title="Research & Publications"><p className="lead">Making intelligent systems useful for learning.</p><p>My research interests center on language, retrieval, and education, with particular interest in AI that works for Nepali learners.</p><div className="interest-list">{interests.map(s=><span key={s}>{s}</span>)}</div><article className="publication"><p className="entry-type">JOURNAL ARTICLE · {publication.year}</p><h3>{publication.title}</h3><p className="authors">{publication.authors}</p><p><em>{publication.venue}</em><br/>{publication.pages} · {publication.year}</p><p>My first research journal publication, in AADIM Journal, explores a RAG-based approach to algorithm learning using Romanized Nepali and English. The work connects my interests in information retrieval, Nepali NLP, and AI for education.</p><div className="entry-links"><a href={publication.url}>Paper <ArrowUpRight size={13}/></a><a href={publication.url}>DOI: {publication.doi} <ArrowUpRight size={13}/></a><span className="placeholder">Code / Data · links pending</span></div></article></Section>
- <Section id="experience" number="04" label="PROFESSIONAL JOURNEY" title="Experience">{experience.map(e=><article className="experience-entry" key={e.company}><p className="entry-type">{e.period}</p><h3>{e.role}</h3><p className="organization">{e.company}</p><p className="location">{e.location}</p><ul>{e.points.map(p=><li key={p}>{p}</li>)}</ul></article>)}</Section>
- <Section id="teaching" number="05" label="SHARING KNOWLEDGE" title="Teaching & Mentoring"><p className="lead">Teaching is part of how I practice engineering.</p><p>As an adjunct lecturer, I help students connect computer science foundations with the software and intelligent systems they build. Teaching and mentoring are central to my professional identity.</p><p className="subjects-label">SUBJECTS I TEACH</p><ul className="subjects">{subjects.map(s=><li key={s}>{s}</li>)}</ul></Section>
- <Section id="education" number="06" label="ACADEMIC FOUNDATION" title="Education"><article className="education-entry"><p className="entry-type">GRADUATED 2023</p><h3>B.Sc. CSIT</h3><p className="organization">Tribhuvan University</p><p>Orchid International College</p><div className="academic-highlight"><p><strong>86%</strong><span>Overall percentage</span></p><p><strong>92.4%</strong><span>8th semester · TU Topper</span></p></div></article><article className="education-entry"><h3>+2 Science</h3><p>VS Niketan College · GPA: 3.63 / 4.00</p><p className="award">HISSAN Meritorious Student Award — 2019</p></article></Section>
- <Section id="skills" number="07" label="TOOLS OF THE TRADE" title="Technical Skills"><dl className="skills-list">{skills.map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl></Section>
- <Section id="entrepreneurship" number="08" label="BUILDING IN NEPAL" title="Entrepreneurship"><h3>Kritim Mind Technologies Pvt. Ltd.</h3><p>As CEO, I lead a company working across software, education technology, AI, and digital solutions. Kritim Guru brings that work into education through entrance preparation tools for students in Nepal.</p><a className="text-link" href="https://kritimguru.com">Explore Kritim Guru <ArrowUpRight size={14}/></a></Section>
- <Section id="achievements" number="09" label="MILESTONES" title="Achievements & Highlights"><ul className="highlights"><li><strong>Academic distinction</strong><span>B.Sc. CSIT — 86% overall; 8th semester — 92.4%, Tribhuvan University Topper.</span></li><li><strong>First journal publication</strong><span>Co-authored research published in AADIM Journal in 2026.</span></li><li><strong>Engineering, entrepreneurship &amp; education</strong><span>Software engineer, founder/CEO of Kritim Mind Technologies, and university lecturer.</span></li></ul></Section>
- </>;
+  const extra = PROJECTS.filter((p) =>
+    [
+      "aadim-college-ai-chatbot",
+      "kritim-mind-tech-platform",
+      "mirayas-construction-platform",
+      "pahadi-research-cloud-platform",
+    ].includes(p.id),
+  );
+  return (
+    <>
+      <section id="work" className="work-section container">
+        <div className="editorial-heading" data-reveal>
+          <div>
+            <p className="eyebrow">02 / FROM IDEAS TO IMPLEMENTATION</p>
+            <h2>
+              Selected work<span className="accent">.</span>
+            </h2>
+          </div>
+          <p>
+            Useful software.
+            <br />
+            <em>Thoughtful experiments.</em>
+          </p>
+        </div>
+        <ProjectList projects={works} />
+        <details className="additional-work">
+          <summary>
+            More engineering &amp; AI work <span>+</span>
+          </summary>
+          <div className="extra-grid">
+            {extra.map((p) => (
+              <article key={p.id} className="extra-project">
+                <h3>{p.title}</h3>
+                <p>{p.description}</p>
+                <p className="small-note">
+                  {p.tags.join(" · ")}
+                  <br />
+                  My role: Software development
+                </p>
+                {p.liveUrl && (
+                  <a className="text-link" href={p.liveUrl}>
+                    View Project <ArrowUpRight size={15} />
+                  </a>
+                )}
+              </article>
+            ))}
+          </div>
+        </details>
+      </section>
+
+      <section id="research" className="research-band">
+        <div className="container" data-reveal>
+          <div className="editorial-heading">
+            <div>
+              <p className="eyebrow">03 / QUESTIONS WORTH EXPLORING</p>
+              <h2>
+                Research &amp;
+                <br />
+                <em>Publications.</em>
+              </h2>
+            </div>
+            <p>
+              Language. Retrieval. Learning.
+              <br />
+              AI that works for Nepali learners.
+            </p>
+          </div>
+          <div className="interest-list">
+            {interests.map((s) => (
+              <span key={s}>{s}</span>
+            ))}
+          </div>
+          <article className="publication">
+            <div className="publication-year">
+              {publication.year}
+              <span>JOURNAL ARTICLE</span>
+            </div>
+            <div className="publication-body">
+              <p className="entry-type">AADIM JOURNAL · FIRST PUBLICATION</p>
+              <h3>{publication.title}</h3>
+              <p className="authors">{publication.authors}</p>
+              <p className="venue">
+                <em>{publication.venue}</em> · {publication.pages}
+              </p>
+              <p>
+                A RAG-based approach to algorithm learning using Romanized
+                Nepali and English. This work connects information retrieval,
+                Nepali NLP, and AI for education.
+              </p>
+              <div className="research-results">
+                <span>
+                  <strong>0.79</strong> Precision at 5
+                </span>
+                <span>
+                  <strong>4.31/5</strong> Student satisfaction
+                </span>
+              </div>
+              <p className="small-note">
+                Reported results from the project evaluation.
+              </p>
+              <div className="entry-links">
+                <a href={publication.url}>
+                  Read Paper <ArrowUpRight size={16} />
+                </a>
+                <a href={publication.url}>
+                  DOI: {publication.doi} <ArrowUpRight size={16} />
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <Section
+        id="experience"
+        number="04"
+        label="ALONG THE WAY"
+        title="Experience"
+      >
+        <div className="timeline">
+          {experience.map((e) => (
+            <article className="experience-entry" key={e.company}>
+              <p className="entry-type">{e.period}</p>
+              <h3>{e.role}</h3>
+              <p className="organization">{e.company}</p>
+              <p className="location">{e.location}</p>
+              <ul>
+                {e.points.map((p) => (
+                  <li key={p}>{p}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <section id="teaching" className="teaching-band">
+        <div className="container teaching-layout" data-reveal>
+          <div>
+            <p className="eyebrow">05 / KNOWLEDGE IS BETTER SHARED</p>
+            <h2>
+              I also <em>teach.</em>
+            </h2>
+            <p>
+              Helping students move from understanding an idea to building
+              something with it.
+            </p>
+            <p className="teaching-credit">
+              Adjunct Lecturer · Texas International College
+            </p>
+          </div>
+          <div className="teaching-topics">
+            <span className="teaching-arrow" aria-hidden="true">
+              ↳
+            </span>
+            <RotatingText
+              className="teaching-rotation"
+              items={[
+                "Data Structures & Algorithms",
+                "Artificial Intelligence",
+                "Machine Learning",
+                "Python",
+                "Java",
+                "DBMS",
+                "Computer Vision",
+                "Agentic AI",
+              ]}
+            />
+            <div className="teaching-rule" />
+            <p>Foundations. Practice. Possibility.</p>
+          </div>
+          <details className="all-subjects">
+            <summary>
+              All subjects &amp; mentoring <span>+</span>
+            </summary>
+            <p>
+              I guide students through programming, machine learning projects,
+              and research. Teaching is central to my professional identity.
+            </p>
+            <ul className="subjects">
+              {subjects.map((s) => (
+                <li key={s}>{s}</li>
+              ))}
+            </ul>
+          </details>
+        </div>
+      </section>
+
+      <Section
+        id="education"
+        number="06"
+        label="THE FOUNDATION"
+        title="Education"
+      >
+        <article className="education-entry">
+          <p className="entry-type">2023</p>
+          <h3>B.Sc. CSIT</h3>
+          <p className="organization">Tribhuvan University</p>
+          <p>Orchid International College</p>
+          <p className="education-score">
+            86% overall <span>·</span> 92.4% in the eighth semester
+          </p>
+          <p className="award">Tribhuvan University Topper · 8th Semester</p>
+        </article>
+        <article className="education-entry">
+          <h3>+2 Science</h3>
+          <p>VS Niketan College · GPA: 3.63 / 4.00</p>
+          <p className="award">HISSAN Meritorious Student Award — 2019</p>
+        </article>
+      </Section>
+
+      <section id="achievements" className="milestones container" data-reveal>
+        <p className="eyebrow">A FEW MILESTONES</p>
+        <h2 className="sr-only">Achievements &amp; Highlights</h2>
+        <dl className="milestone-list">
+          {[
+            ["86%", "B.Sc. CSIT"],
+            ["92.4%", "Final semester · TU Topper"],
+            ["01", "Published research journal"],
+            ["2023", "Graduation"],
+          ].map(([value, label]) => (
+            <div key={label}>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <Section
+        id="skills"
+        number="07"
+        label="THE TOOLKIT"
+        title="Technical Skills"
+      >
+        <dl className="skills-list">
+          {skills.map(([label, value]) => (
+            <div key={label}>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))}
+        </dl>
+      </Section>
+
+      <section id="entrepreneurship" className="venture container" data-reveal>
+        <div>
+          <p className="eyebrow">08 / ENTREPRENEURSHIP</p>
+          <h2>
+            Building
+            <br />
+            <em>beyond code.</em>
+          </h2>
+        </div>
+        <div className="venture-copy">
+          <h3>Kritim Mind Technologies</h3>
+          <p>
+            As CEO of Kritim Mind Technologies Pvt. Ltd., I lead work across
+            software, education technology, AI, and digital solutions. Through
+            Kritim Guru, we build entrance preparation tools for students in
+            Nepal.
+          </p>
+          <a className="text-link" href="https://kritimguru.com">
+            Explore Kritim Guru <ArrowUpRight size={18} />
+          </a>
+        </div>
+      </section>
+    </>
+  );
 }

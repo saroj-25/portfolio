@@ -13,3 +13,11 @@ The complete journal title, authors, venue, year and DOI come from the original 
 Project content is maintained in `data/redesign.ts`; existing contact details and additional work are in `data/portfolioData.ts`.
 
 The contact form opens a populated mailto draft. It does not claim delivery and requires an email application. There was no existing message delivery backend.
+
+## Personal laboratory refresh
+
+The latest brief uses 86% in education and milestones. The earlier 85.57% portrait caption is superseded by this refreshed layout. Existing stack, contact mailto draft, portrait, and established publication/links remain. Project diagrams are conceptual illustrations, not product screenshots or measured charts.
+
+Hero and teaching identities rotate every 2.8 seconds. The navigation pause control and reduced-motion preference stop motion; timers pause outside the viewport and in hidden tabs. SVG network interactions are decorative and have no external dependency. Scroll reveals enhance otherwise-visible content.
+
+Google Scholar and CV remain explicit TODOs. Code/data links are omitted from publications until confirmed. No article content was invented. Lighthouse 90+ is a target, not a measured claim.
