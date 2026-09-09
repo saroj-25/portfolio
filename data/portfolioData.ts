@@ -64,10 +64,10 @@ export const PERSONAL_INFO = {
   bio: "Software Developer, AI/ML Specialist, NLP & LLM Researcher, and Founder & CEO of Kritim Mind Technology Pvt. Ltd. Tribhuvan University CSIT Topper (85.57% overall, 92.4% final sem). Passionate about Natural Language Processing, Large Language Models, Agentic AI, RAG, full-stack systems, and educating the next generation of CS engineers.",
   location: "Melung-7, Dolakha / Kathmandu, Nepal",
   phone: "(+977) 9844266088",
-  email: "sarosebhandari100@gmail.com",
+  email: "saroj.bhandari.cs@gmail.com",
   github: "https://github.com/saroj-25",
   linkedin: "https://linkedin.com/in/sarojbhandari17",
-  twitter: "https://github.com/saroj-25",
+  twitter: "https://x.com/saroj_bhandari0",
   status: "Founder & CEO @ Kritim Mind Technology | Open for Technical Consultations",
   availability: "Available for NLP/LLM Research, Consultations & AI Architecture",
   companyWebsite: "https://www.kritimmind.com"
@@ -398,7 +398,7 @@ Founder & CEO @ Kritim Mind Technology Pvt. Ltd.
 Researcher in NLP, LLMs & Retrieval-Augmented Generation (RAG)
 Adjunct Lecturer in Computer Science (Texas Int'l & Aadim National College)
 TU B.Sc. CSIT Topper (85.57% Overall, 92.4% 8th Semester)
-Contact: sarosebhandari100@gmail.com | (+977) 9844266088`,
+Contact: saroj.bhandari.cs@gmail.com | (+977) 9844266088`,
 
   ceo: `Kritim Mind Technology Pvt. Ltd.
 Founder & CEO: Saroj Bhandari
@@ -427,7 +427,7 @@ Focus   : AI/ML engineering, Agentic Systems, RAG workflows, and enterprise soft
   • +2 Science - VS Niketan College: GPA 3.63/4.0 (HISSAN Meritorious Award 2019)`,
 
   contact: `Contact Saroj Bhandari:
-  • Email   : sarosebhandari100@gmail.com
+  • Email   : saroj.bhandari.cs@gmail.com
   • Phone   : (+977) 9844266088
   • LinkedIn: https://linkedin.com/in/sarojbhandari17
   • GitHub  : https://github.com/saroj-25

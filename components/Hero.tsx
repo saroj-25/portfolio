@@ -41,12 +41,7 @@ export default function Hero() {
           <a className="button secondary" href="#research">
             View Research <ArrowUpRight size={17} />
           </a>
-          <span className="cv-placeholder">
-            <button className="cv-button" disabled>
-              Download CV <ArrowDown size={14} />
-            </button>
-            <small>TODO: CV file</small>
-          </span>
+
         </div>
         <div className="social-links">
           <a href={PERSONAL_INFO.github}>
@@ -55,7 +50,14 @@ export default function Hero() {
           <a href={PERSONAL_INFO.linkedin}>
             LinkedIn <ArrowUpRight size={13} />
           </a>
-          <span className="placeholder">Google Scholar · TODO</span>
+          <a
+            href="https://scholar.google.com/citations?user=OGF4reEAAAAJ&hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Google Scholar <ArrowUpRight size={13} />
+          </a>
+
           <a href={`mailto:${PERSONAL_INFO.email}`}>
             Email <ArrowUpRight size={13} />
           </a>

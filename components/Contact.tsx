@@ -62,7 +62,13 @@ export default function Contact() {
               <a href={PERSONAL_INFO.linkedin}>
                 LinkedIn <ArrowUpRight size={13} />
               </a>
-              <span className="placeholder">Google Scholar · TODO</span>
+              <a
+                href="https://scholar.google.com/citations?user=OGF4reEAAAAJ&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Scholar <ArrowUpRight size={13} />
+              </a>
             </div>
             <p className="contact-location">Kathmandu, Nepal</p>
             <a className="phone" href="tel:+9779844266088">

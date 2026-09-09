@@ -11,6 +11,7 @@ import { PROJECTS } from "@/data/portfolioData";
 import type { ReactNode } from "react";
 import ProjectList from "./ProjectList";
 import { RotatingText } from "./Motion";
+import TrainingGallery from "./TrainingGallery";
 
 function Section({
   id,
@@ -187,7 +188,8 @@ export default function PortfolioSections() {
               something with it.
             </p>
             <p className="teaching-credit">
-              Adjunct Lecturer · Texas International College
+              Adjunct Lecturer · Texas International College · Aadim National
+              College
             </p>
           </div>
           <div className="teaching-topics">
@@ -226,6 +228,8 @@ export default function PortfolioSections() {
           </details>
         </div>
       </section>
+
+      <TrainingGallery />
 
       <Section
         id="education"
@@ -298,11 +302,11 @@ export default function PortfolioSections() {
           <p>
             As CEO of Kritim Mind Technologies Pvt. Ltd., I lead work across
             software, education technology, AI, and digital solutions. Through
-            Kritim Guru, we build entrance preparation tools for students in
-            Nepal.
+            Kritim Mind, we build entrance preparation tools - KritimGuru for
+            students in Nepal.
           </p>
-          <a className="text-link" href="https://kritimguru.com">
-            Explore Kritim Guru <ArrowUpRight size={18} />
+          <a className="text-link" href="https://kritimmind.com">
+            Kritim Mind Technologies <ArrowUpRight size={18} />
           </a>
         </div>
       </section>

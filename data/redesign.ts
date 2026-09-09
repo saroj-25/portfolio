@@ -91,12 +91,13 @@ export const experience = [
   },
   {
     role: "Adjunct Lecturer",
-    company: "Texas International College",
+    company: "Texas International College | Aadim National College",
     location: "Nepal",
-    period: "Dates to be added",
+    period: "2024-Present",
     points: [
       "Teach undergraduate computer science, including AI, algorithms, and database systems.",
       "Guide students through programming, machine learning projects, and research.",
+       "Supervised more than 50 projects in Software Development and Robiotics.",
     ],
   },
 ];
@@ -120,6 +121,7 @@ export const subjects = [
   ".NET",
   "Web Technologies",
   "Python",
+  "Advance Java",
   "Computer Vision",
   "Agentic AI",
 ];

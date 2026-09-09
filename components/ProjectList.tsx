@@ -184,9 +184,11 @@ export default function ProjectList({ projects }: { projects: Work[] }) {
             <p className="entry-type">{work.kind}</p>
             <h3>{work.title}</h3>
             <p className="case-description">{work.description}</p>
-            <p className="case-tech">
-              {work.technology || "TODO: technology details"}
-            </p>
+            {work.technology && (
+              <p className="case-tech">
+                {work.technology}
+              </p>
+            )}
             <p className="case-role">My role: {work.role}</p>
             <div className="entry-links">
               {work.url && (
@@ -207,10 +209,15 @@ export default function ProjectList({ projects }: { projects: Work[] }) {
                   <ArrowUpRight size={16} />
                 </a>
               )}
-              {!work.url && !work.github && (
-                <span className="placeholder">
-                  TODO: project and repository links
-                </span>
+              {work.github && (
+                <a
+                  href={work.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link"
+                >
+                  GitHub ↗
+                </a>
               )}
             </div>
           </div>

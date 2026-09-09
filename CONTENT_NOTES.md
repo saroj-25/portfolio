@@ -20,4 +20,3 @@ The latest brief uses 86% in education and milestones. The earlier 85.57% portra
 
 Hero and teaching identities rotate every 2.8 seconds. The navigation pause control and reduced-motion preference stop motion; timers pause outside the viewport and in hidden tabs. SVG network interactions are decorative and have no external dependency. Scroll reveals enhance otherwise-visible content.
 
-Google Scholar and CV remain explicit TODOs. Code/data links are omitted from publications until confirmed. No article content was invented. Lighthouse 90+ is a target, not a measured claim.
