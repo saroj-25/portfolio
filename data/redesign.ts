@@ -41,8 +41,9 @@ export const works = [
       "A machine learning project for predicting flight fares from historical flight data, with preprocessing, feature engineering, and comparison of regression models.",
     technology: "Python · scikit-learn · Random Forest · Decision Trees",
     role: "ML development",
-    url: null,
+    url: "https://kritimsms.com",
     github: "https://github.com/saroj-17/FlightFarePredectionSystem",
+
     paper: null,
   },
   {
