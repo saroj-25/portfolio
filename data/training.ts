@@ -11,6 +11,42 @@ export const trainingTopics = [
 
 const latestTrainingPhotos = [
   {
+    src: "/image/training/matplotlib-class.webp",
+    title: "Making data visible",
+    alt: "An instructor explains Python Matplotlib charts to students in a computer classroom.",
+    width: 1600,
+    height: 1067,
+    cropTop: 0,
+    cropBottom: 0,
+  },
+  {
+    src: "/image/training/student-mentoring.webp",
+    title: "Guidance at every step",
+    alt: "An instructor helps students review their books and written work at a classroom desk.",
+    width: 1600,
+    height: 1067,
+    cropTop: 0,
+    cropBottom: 0,
+  },
+  {
+    src: "/image/training/group-guidance.webp",
+    title: "Working through ideas together",
+    alt: "An instructor guides a group of students through an exercise in their notebooks.",
+    width: 1600,
+    height: 1067,
+    cropTop: 0,
+    cropBottom: 0,
+  },
+  {
+    src: "/image/training/classroom-study.webp",
+    title: "Learning in the classroom",
+    alt: "Students write in their notebooks while an instructor supports the class.",
+    width: 910,
+    height: 607,
+    cropTop: 0,
+    cropBottom: 0,
+  },
+  {
     src: "/image/training/ai-workshop-1.webp",
     title: "Sharing ideas in the lab",
     alt: "A presenter speaks into a microphone as students and facilitators applaud in a computer lab.",
@@ -131,15 +167,6 @@ const earlierTrainingPhotos = [
     cropBottom: 0,
   },
   {
-    src: "/image/training/brightness-control.webp",
-    title: "From hand tracking to interaction",
-    alt: "A hand gesture application adjusts screen brightness during a demonstration.",
-    width: 1080,
-    height: 1036,
-    cropTop: 0,
-    cropBottom: 0,
-  },
-  {
     src: "/image/training/finger-counting.webp",
     title: "Sharing working projects",
     alt: "A finger-counting computer vision project presented on a classroom display.",
@@ -165,15 +192,6 @@ const earlierTrainingPhotos = [
     height: 1600,
     cropTop: 85,
     cropBottom: 57,
-  },
-  {
-    src: "/image/training/online-neural-network.webp",
-    title: "Learning beyond the classroom",
-    alt: "An online training session reviewing Python code for a convolutional neural network.",
-    width: 1280,
-    height: 611,
-    cropTop: 0,
-    cropBottom: 0,
   },
 ];
 

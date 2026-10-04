@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { MotionToggle } from "./Motion";
 const sections = [
   "About",
@@ -17,6 +18,26 @@ export default function Navbar() {
   const [active, setActive] = useState("");
   const [compact, setCompact] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
+  const header = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const outside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !header.current?.contains(event.target)) setOpen(false);
+    };
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { setOpen(false); toggle.current?.focus(); }
+    };
+    const desktop = window.matchMedia("(min-width: 1101px)");
+    const resize = () => { if (desktop.matches) setOpen(false); };
+    document.addEventListener("pointerdown", outside);
+    document.addEventListener("keydown", escape);
+    desktop.addEventListener("change", resize);
+    return () => {
+      document.removeEventListener("pointerdown", outside);
+      document.removeEventListener("keydown", escape);
+      desktop.removeEventListener("change", resize);
+    };
+  }, [open]);
   useEffect(() => {
     let frame = 0;
     const update = () => {
@@ -44,13 +65,11 @@ export default function Navbar() {
     setOpen(false);
   }
   return (
-    <header className={`site-header ${compact ? "compact" : ""}`}>
+    <header ref={header} className={`site-header ${compact ? "compact" : ""}`}>
       <div className="nav-wrap">
         <a className="wordmark" href="#home" onClick={closeMenu}>
-          <span className="brand-mark" aria-hidden="true">
-            s<span>↗</span>
-          </span>
-          Saroj Bhandari
+          <Image className="nav-avatar" src="/image/profile-icon.png" alt="" width={64} height={64} sizes="(max-width: 400px) 44px, (max-width: 1100px) 52px, 64px" />
+          <span className="nav-brand-text">Saroj Bhandari<span>Engineer · Researcher</span></span>
         </a>
         <nav
           id="main-navigation"
@@ -70,7 +89,8 @@ export default function Navbar() {
               href={`#${s.toLowerCase()}`}
               onClick={closeMenu}
             >
-              {s}
+              {s === "Work" ? "Projects" : s === "Contact" ? "Let’s talk" : s}
+              {s === "Contact" && <ArrowUpRight size={15} />}
             </a>
           ))}
         </nav>

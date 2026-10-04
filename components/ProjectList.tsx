@@ -1,16 +1,23 @@
 "use client";
 
-import { ArrowUpRight, MessagesSquare, PanelsTopLeft, UsersRound } from "lucide-react";
+import { ArrowUpRight, MessagesSquare, PanelsTopLeft, Smartphone, Server, Layers } from "lucide-react";
 import type { works } from "@/data/redesign";
 import { useMotion } from "./Motion";
 
 type Work = (typeof works)[number];
 function ProjectVisual({ visual }: { visual: Work["visual"] }) {
+  if (visual === "connect") return (
+    <div className="connect-architecture" aria-label="Aadim Connect: mobile application, application architecture, and server-side engineering">
+      <span className="connect-architecture-label">AADIM CONNECT</span>
+      <div className="connect-mobile"><Smartphone size={34} strokeWidth={1.4} /><span>Mobile application</span></div>
+      <div className="connect-path" aria-hidden="true" />
+      <div className="connect-server"><Server size={28} strokeWidth={1.4} /><div><strong>Server engineering</strong><span>Application architecture</span></div></div>
+    </div>
+  );
   const illustration = {
-    connect: { icon: UsersRound, label: "Aadim Connect", detail: "College platform" },
     chatbot: { icon: MessagesSquare, label: "Ask. Explore. Learn.", detail: "Aadim Chatbot" },
     builder: { icon: PanelsTopLeft, label: "Drag. Drop. Create.", detail: "MySchool" },
-  }[visual as "connect" | "chatbot" | "builder"];
+  }[visual as "chatbot" | "builder"];
   if (illustration) {
     const Icon = illustration.icon;
     return <div className={`project-symbol project-symbol-${visual}`} aria-hidden="true"><div><Icon size={64} strokeWidth={1.3} /></div><strong>{illustration.label}</strong><span>{illustration.detail}</span></div>;
@@ -194,6 +201,12 @@ export default function ProjectList({ projects }: { projects: Work[] }) {
               </p>
             )}
             <p className="case-role">My role: {work.role}</p>
+            {work.architecture && (
+              <details className="project-architecture-details">
+                <summary><Layers size={16} /> Application &amp; server work <span aria-hidden="true">+</span></summary>
+                <dl>{work.architecture.map(item => <div key={item.title}><dt>{item.title}</dt><dd>{item.detail}</dd></div>)}</dl>
+              </details>
+            )}
             <div className="entry-links">
               {work.url && (
                 <a href={work.url}>

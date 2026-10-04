@@ -17,11 +17,16 @@ const aadimChatbot = PROJECTS.find((project) => project.id === "aadim-college-ai
 export const works = [
   {
     title: "Aadim Connect",
-    kind: "COLLEGE PLATFORM",
+    kind: "MOBILE APPLICATION & SERVER ENGINEERING",
     visual: "connect",
-    description: "A platform developed for Aadim National College, bringing college work together through Aadim Connect.",
+    architecture: [
+      { title: "Mobile application", detail: "Application development for the mobile experience." },
+      { title: "Application architecture", detail: "Designing how the application and its supporting systems fit together." },
+      { title: "Server-side engineering", detail: "A primary focus on the server implementation behind the application." },
+    ],
+    description: "Aadim Connect brings together a mobile application and its supporting server-side systems for Aadim National College. My work spans the application architecture and implementation, with a particular focus on the server.",
     technology: null,
-    role: "Software development",
+    role: "Application architecture, mobile application & server-side development",
     url: "https://task.aadimcollege.edu.np",
     github: null,
     paper: null,
