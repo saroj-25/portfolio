@@ -2814,11 +2814,18 @@ textarea {
 
 /* Personal introduction and connected editorial cards. */
 .hero h1.hero-introduction { width: fit-content; max-width: 100%; display: flex; flex-direction: column; align-items: flex-start; }
-.hero-intro-row { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
-.hero h1.hero-introduction .hero-greeting { display: block; margin: 0; }
-.hero h1.hero-introduction .hero-name { display: block; text-align: left; }
+.hero-intro-row { display: flex; align-items: center; gap: 16px; max-width: 100%; }
+.hero h1.hero-introduction .hero-greeting { display: block; margin: 0 0 18px; }
+.hero h1.hero-introduction .hero-name { display: block; min-width: 0; text-align: left; font-size: clamp(32px, 3.5vw, 54px); letter-spacing: -2px; }
+.hero-introduction + .hero-identity { margin-left: 88px; margin-top: 12px; }
 .hero-portrait-link { display: block; flex-shrink: 0; border-radius: 50%; line-height: 0; transition: transform .25s ease, box-shadow .25s ease; }
-.hero-portrait-link .hero-portrait { display: block; width: 88px; height: 88px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 1px #cfd9eb, 0 8px 22px #244b8815; }
+.hero-portrait-link .hero-portrait { display: block; width: 72px; height: 72px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 1px #cfd9eb, 0 8px 22px #244b8815; }
+@media (max-width: 640px) {
+  .hero-intro-row { gap: 12px; }
+  .hero-portrait-link .hero-portrait { width: 56px; height: 56px; }
+  .hero h1.hero-introduction .hero-name { font-size: clamp(28px, 7vw, 40px); letter-spacing: -1.3px; }
+  .hero-introduction + .hero-identity { margin-left: 68px; font-size: 16px; gap: 6px; }
+}
 .hero-portrait-link:hover, .hero-portrait-link:focus-visible { transform: translateY(-3px); box-shadow: 0 0 0 4px #dce8f8; }
 .hero-portrait-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
 .motion-off .hero-portrait-link { transition: none; transform: none; }

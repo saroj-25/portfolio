@@ -14,13 +14,13 @@ export default function Hero() {
           <span className="eyebrow-rule" />
         </p>
         <h1 className="hero-introduction">
+          <span className="hero-greeting">Hi, I’m</span>{" "}
           <span className="hero-intro-row">
             <a className="hero-portrait-link" href="#about" aria-label="A little about Saroj Bhandari">
-              <Image className="hero-portrait" src="/image/profile-icon.png" alt="" width={88} height={88} sizes="88px" />
+              <Image className="hero-portrait" src="/image/profile-icon.png" alt="" width={72} height={72} sizes="(max-width: 640px) 56px, 72px" />
             </a>
-            <span className="hero-greeting">Hi, I’m</span>
-          </span>{" "}
-          <span className="hero-name">Saroj Bhandari<span className="accent">.</span></span>
+            <span className="hero-name">Saroj Bhandari<span className="accent">.</span></span>
+          </span>
         </h1>
         <div className="hero-identity">
           <span className="identity-mark" aria-hidden="true">
