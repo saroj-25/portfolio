@@ -42,7 +42,6 @@ function Section({
 export default function PortfolioSections() {
   const extra = PROJECTS.filter((p) =>
     [
-      "aadim-college-ai-chatbot",
       "kritim-mind-tech-platform",
       "mirayas-construction-platform",
       "pahadi-research-cloud-platform",

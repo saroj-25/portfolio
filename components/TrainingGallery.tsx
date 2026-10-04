@@ -8,11 +8,9 @@ import { trainingPhotos, trainingTopics } from "@/data/training";
 type Photo = (typeof trainingPhotos)[number];
 function PhotoImage({
   photo,
-  featured = false,
   expanded = false,
 }: {
   photo: Photo;
-  featured?: boolean;
   expanded?: boolean;
 }) {
   const visibleHeight = photo.height - photo.cropTop - photo.cropBottom;
@@ -25,7 +23,7 @@ function PhotoImage({
   } as CSSProperties;
   return (
     <div
-      className={`training-image-window ${featured ? "training-feature-image" : ""}`}
+      className={`training-image-window ${expanded ? "" : "training-grid-image"}`}
       style={style}
     >
       <Image
@@ -36,9 +34,7 @@ function PhotoImage({
         sizes={
           expanded
             ? "(max-width: 800px) 94vw, 1100px"
-            : featured
-              ? "(max-width: 640px) 100vw, (max-width: 1000px) 65vw, 760px"
-              : "(max-width: 640px) 100vw, (max-width: 900px) 50vw, 380px"
+            : "(max-width: 640px) 100vw, (max-width: 900px) 50vw, 380px"
         }
         className="training-image"
         loading={expanded ? "eager" : "lazy"}
@@ -69,12 +65,12 @@ export default function TrainingGallery() {
         : (index + direction + trainingPhotos.length) % trainingPhotos.length,
     );
   }
-  function thumbnail(index: number, featured = false) {
+  function thumbnail(index: number) {
     const item = trainingPhotos[index];
     return (
       <figure
         key={item.src}
-        className={`training-photo ${featured ? "training-feature" : ""}`}
+        className="training-photo"
       >
         <button
           className="training-image-button"
@@ -82,7 +78,7 @@ export default function TrainingGallery() {
           onClick={() => setSelected(index)}
           aria-label={`Enlarge photo: ${item.title}`}
         >
-          <PhotoImage photo={item} featured={featured} />
+          <PhotoImage photo={item} />
           <span className="training-expand" aria-hidden="true">
             <Expand size={16} />
           </span>
@@ -129,19 +125,9 @@ export default function TrainingGallery() {
           <span key={topic}>{topic}</span>
         ))}
       </div>
-      <div className="training-feature-grid">
-        {thumbnail(0, true)}
-        {thumbnail(1, true)}
+      <div className="training-photo-grid">
+        {trainingPhotos.map((_, index) => thumbnail(index))}
       </div>
-      <details className="training-more">
-        <summary>
-          <span>View {trainingPhotos.length - 2} more training photos</span>
-          <span aria-hidden="true">+</span>
-        </summary>
-        <div className="training-photo-grid">
-          {trainingPhotos.slice(2).map((_, index) => thumbnail(index + 2))}
-        </div>
-      </details>
       <p className="training-gallery-note">
         Classroom learning, live demonstrations, and online training. Select a
         photo for a closer look.

@@ -9,7 +9,7 @@ export const trainingTopics = [
   "LLMs",
 ];
 
-export const trainingPhotos = [
+const latestTrainingPhotos = [
   {
     src: "/image/training/ai-workshop-1.webp",
     title: "Sharing ideas in the lab",
@@ -82,6 +82,9 @@ export const trainingPhotos = [
     cropTop: 0,
     cropBottom: 0,
   },
+];
+
+const earlierTrainingPhotos = [
   {
     src: "/image/training/classroom-session.webp",
     title: "Learning together",
@@ -173,3 +176,9 @@ export const trainingPhotos = [
     cropBottom: 0,
   },
 ];
+
+// Keep the grid and lightbox in the same new / earlier alternating order.
+export const trainingPhotos = Array.from(
+  { length: Math.max(latestTrainingPhotos.length, earlierTrainingPhotos.length) },
+  (_, index) => [latestTrainingPhotos[index], earlierTrainingPhotos[index]],
+).flatMap((pair) => pair.filter((photo) => photo !== undefined));

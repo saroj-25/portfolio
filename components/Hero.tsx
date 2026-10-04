@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, BrainCircuit, Code2, GraduationCap, Rocket } from "lucide-react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
 import { SCHOLAR_URL } from "@/data/seo";
 import { RotatingText } from "./Motion";
@@ -13,15 +13,15 @@ export default function Hero() {
           <span className="eyebrow-rule" />
         </p>
         <h1>
-          Hi, I’m
-          <br />
-          Saroj Bhandari<span className="accent">.</span>
+          <span className="hero-greeting">Hi, I’m</span>
+          <span className="hero-name">Saroj Bhandari<span className="accent">.</span></span>
         </h1>
         <div className="hero-identity">
           <span className="identity-mark" aria-hidden="true">
             ↳
           </span>
           <RotatingText
+            className="hero-role"
             items={[
               "Software Engineer",
               "AI/ML Researcher",
@@ -30,6 +30,12 @@ export default function Hero() {
             ]}
           />
         </div>
+        <nav className="hero-specialties" aria-label="Explore my work by field">
+          <a href="#research"><BrainCircuit size={17} /><span>AI &amp; ML</span><ArrowUpRight size={14} /></a>
+          <a href="#work"><Code2 size={17} /><span>Engineering</span><ArrowUpRight size={14} /></a>
+          <a href="#training"><GraduationCap size={17} /><span>Education</span><ArrowUpRight size={14} /></a>
+          <a href="#entrepreneurship"><Rocket size={17} /><span>Entrepreneurship</span><ArrowUpRight size={14} /></a>
+        </nav>
         <p className="hero-intro">
           I build software systems, explore applied AI/ML research, and teach
           technology. My work sits at the intersection of engineering,

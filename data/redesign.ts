@@ -1,3 +1,5 @@
+import { PROJECTS } from "./portfolioData";
+
 // Content from the redesign brief and existing portfolio. Null links are deliberately
 // rendered as visible placeholders; replace them only with confirmed destinations.
 export const publication = {
@@ -10,9 +12,45 @@ export const publication = {
   doi: "10.3126/ajmr.v2i1.97539",
   url: "https://doi.org/10.3126/ajmr.v2i1.97539",
 };
+const aadimChatbot = PROJECTS.find((project) => project.id === "aadim-college-ai-chatbot")!;
+
 export const works = [
   {
+    title: "Aadim Connect",
+    kind: "COLLEGE PLATFORM",
+    visual: "connect",
+    description: "A platform developed for Aadim National College, bringing college work together through Aadim Connect.",
+    technology: null,
+    role: "Software development",
+    url: "https://task.aadimcollege.edu.np",
+    github: null,
+    paper: null,
+  },
+  {
+    title: "Aadim Chatbot",
+    kind: "CONVERSATIONAL AI",
+    visual: "chatbot",
+    description: aadimChatbot.description,
+    technology: aadimChatbot.tags.join(" · "),
+    role: "AI development",
+    url: aadimChatbot.liveUrl ?? null,
+    github: null,
+    paper: null,
+  },
+  {
+    title: "MySchool",
+    kind: "EDUCATION SAAS",
+    visual: "builder",
+    description: "A SaaS platform for schools with multiple drag-and-drop capabilities, designed to make building and arranging school experiences more flexible.",
+    technology: null,
+    role: "Software development",
+    url: null,
+    github: null,
+    paper: null,
+  },
+  {
     title: "Kritim Guru / Preping Guru",
+    visual: "education",
     kind: "EDUCATION TECHNOLOGY",
     description:
       "An MCQ-based entrance preparation platform for +2 students in Nepal, available on web, Android, and desktop. Developed through Kritim Mind Technologies.",
@@ -24,6 +62,7 @@ export const works = [
   },
   {
     title: "RAG Research for Data Structures & Algorithms",
+    visual: "research",
     kind: "APPLIED AI RESEARCH",
     description:
       "Investigating retrieval-augmented generation for algorithm learning with English and Romanized Nepali code-mixed queries. The reported evaluation achieved P@5 = 0.79 and student satisfaction of 4.31/5.",
@@ -36,24 +75,26 @@ export const works = [
   },
   {
     title: "Flight Fare Prediction System",
+    visual: "prediction",
     kind: "MACHINE LEARNING",
     description:
       "A machine learning project for predicting flight fares from historical flight data, with preprocessing, feature engineering, and comparison of regression models.",
     technology: "Python · scikit-learn · Random Forest · Decision Trees",
     role: "ML development",
-    url: "https://kritimsms.com",
+    url: null,
     github: "https://github.com/saroj-17/FlightFarePredectionSystem",
 
     paper: null,
   },
   {
     title: "KritimSMS",
+    visual: "messaging",
     kind: "SOFTWARE ENGINEERING",
     description:
       "An SMS communication platform developed for business and system messaging.",
     technology: null,
     role: "Software development",
-    url: null,
+    url: "https://kritimsms.com",
     github: null,
     paper: null,
   },

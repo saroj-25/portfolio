@@ -1,15 +1,24 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MessagesSquare, PanelsTopLeft, UsersRound } from "lucide-react";
 import type { works } from "@/data/redesign";
 import { useMotion } from "./Motion";
 
 type Work = (typeof works)[number];
-function ProjectVisual({ index }: { index: number }) {
+function ProjectVisual({ visual }: { visual: Work["visual"] }) {
+  const illustration = {
+    connect: { icon: UsersRound, label: "Aadim Connect", detail: "College platform" },
+    chatbot: { icon: MessagesSquare, label: "Ask. Explore. Learn.", detail: "Aadim Chatbot" },
+    builder: { icon: PanelsTopLeft, label: "Drag. Drop. Create.", detail: "MySchool" },
+  }[visual as "connect" | "chatbot" | "builder"];
+  if (illustration) {
+    const Icon = illustration.icon;
+    return <div className={`project-symbol project-symbol-${visual}`} aria-hidden="true"><div><Icon size={64} strokeWidth={1.3} /></div><strong>{illustration.label}</strong><span>{illustration.detail}</span></div>;
+  }
   return (
     <svg viewBox="0 0 240 190" fill="none" aria-hidden="true">
       <path d="M0 189H240M0 1H240" stroke="currentColor" opacity=".2" />
-      {index === 0 ? (
+      {visual === "education" ? (
         <>
           <rect
             x="52"
@@ -41,7 +50,7 @@ function ProjectVisual({ index }: { index: number }) {
           ))}
           <path d="m73 104 3 3 6-7" stroke="currentColor" />
         </>
-      ) : index === 1 ? (
+      ) : visual === "research" ? (
         <>
           {[0, 1, 2].map((i) => (
             <g key={i}>
@@ -77,7 +86,7 @@ function ProjectVisual({ index }: { index: number }) {
             stroke="currentColor"
           />
         </>
-      ) : index === 2 ? (
+      ) : visual === "prediction" ? (
         <>
           <path d="M35 32v119h180" stroke="currentColor" opacity=".4" />
           <path
@@ -142,12 +151,7 @@ function ProjectVisual({ index }: { index: number }) {
         fontFamily="monospace"
       >
         {
-          [
-            "LEARN / PRACTICE / REPEAT",
-            "QUERY / RETRIEVE / GENERATE",
-            "",
-            "SYSTEM / MESSAGE / DELIVERY",
-          ][index]
+          ({ education: "LEARN / PRACTICE / REPEAT", research: "QUERY / RETRIEVE / GENERATE", prediction: "", messaging: "SYSTEM / MESSAGE / DELIVERY" } as Record<string, string>)[visual]
         }
       </text>
     </svg>
@@ -193,7 +197,7 @@ export default function ProjectList({ projects }: { projects: Work[] }) {
             <div className="entry-links">
               {work.url && (
                 <a href={work.url}>
-                  {index === 1 ? "Read Research" : "Explore Project"}
+                  {work.visual === "research" ? "Read Research" : "Explore Project"}
                   <ArrowUpRight size={16} />
                 </a>
               )}
@@ -209,20 +213,10 @@ export default function ProjectList({ projects }: { projects: Work[] }) {
                   <ArrowUpRight size={16} />
                 </a>
               )}
-              {work.github && (
-                <a
-                  href={work.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  GitHub ↗
-                </a>
-              )}
             </div>
           </div>
           <div className="project-art">
-            <ProjectVisual index={index} />
+            <ProjectVisual visual={work.visual} />
           </div>
         </article>
       ))}
