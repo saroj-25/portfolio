@@ -2813,12 +2813,13 @@ textarea {
 }
 
 /* Personal introduction and connected editorial cards. */
-.hero h1.hero-introduction { width: fit-content; max-width: 100%; display: flex; flex-direction: column; align-items: center; }
-.hero h1.hero-introduction .hero-greeting { display: block; align-self: flex-start; margin-bottom: 14px; }
-.hero h1.hero-introduction .hero-name { display: block; text-align: center; }
-.hero-portrait-link { display: block; border-radius: 50%; margin-bottom: 14px; line-height: 0; transition: transform .25s ease, box-shadow .25s ease; }
-.hero-portrait-link .hero-portrait { width: 96px; height: 96px; border-radius: 50%; border: 4px solid white; box-shadow: 0 0 0 1px #cfd9eb, 0 10px 25px #244b8815; }
-.hero-portrait-link:hover, .hero-portrait-link:focus-visible { transform: translateY(-3px) rotate(-3deg); box-shadow: 0 0 0 5px #dce8f8; }
+.hero h1.hero-introduction { width: fit-content; max-width: 100%; display: flex; flex-direction: column; align-items: flex-start; }
+.hero-intro-row { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+.hero h1.hero-introduction .hero-greeting { display: block; margin: 0; }
+.hero h1.hero-introduction .hero-name { display: block; text-align: left; }
+.hero-portrait-link { display: block; flex-shrink: 0; border-radius: 50%; line-height: 0; transition: transform .25s ease, box-shadow .25s ease; }
+.hero-portrait-link .hero-portrait { display: block; width: 88px; height: 88px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 1px #cfd9eb, 0 8px 22px #244b8815; }
+.hero-portrait-link:hover, .hero-portrait-link:focus-visible { transform: translateY(-3px); box-shadow: 0 0 0 4px #dce8f8; }
 .hero-portrait-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
 .motion-off .hero-portrait-link { transition: none; transform: none; }
 @media (prefers-reduced-motion: reduce) { .hero-portrait-link { transition: none; } .hero-portrait-link:hover, .hero-portrait-link:focus-visible { transform: none; } }
