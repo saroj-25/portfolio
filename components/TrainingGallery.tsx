@@ -71,6 +71,8 @@ export default function TrainingGallery() {
       <figure
         key={item.src}
         className="training-photo"
+        data-reveal
+        data-reveal-delay={(index % 3) * 60}
       >
         <button
           className="training-image-button"

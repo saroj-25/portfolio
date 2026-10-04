@@ -29,6 +29,7 @@ export function MotionProvider({ children }: { children: ReactNode }) {
   );
   const [paused, setPaused] = useState(false);
   const running = !reduced && !paused;
+  const revealed = useRef(new WeakSet<Element>());
 
   useEffect(() => {
     if (!running) return;
@@ -36,12 +37,18 @@ export function MotionProvider({ children }: { children: ReactNode }) {
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
+          if (revealed.current.has(entry.target)) {
+            observer.unobserve(entry.target);
+            return;
+          }
+          revealed.current.add(entry.target);
+          const delay = Number(entry.target.getAttribute("data-reveal-delay") || 0);
           entry.target.animate(
             [
-              { opacity: 0.45, transform: "translateY(18px)" },
+              { opacity: 0.35, transform: "translateY(14px)" },
               { opacity: 1, transform: "translateY(0)" },
             ],
-            { duration: 650, easing: "cubic-bezier(.2,.7,.2,1)" },
+            { duration: 550, delay: Number.isFinite(delay) ? Math.min(Math.max(delay, 0), 300) : 0, easing: "cubic-bezier(.2,.7,.2,1)" },
           );
           observer.unobserve(entry.target);
         });

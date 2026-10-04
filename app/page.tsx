@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Organizations from "@/components/Organizations";
 import PortfolioSections from "@/components/PortfolioSections";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -26,6 +27,7 @@ export default function Home() {
       <Navbar />
       <main id="main">
         <Hero />
+        <Organizations />
         <section
           id="about"
           className="section about-section container"

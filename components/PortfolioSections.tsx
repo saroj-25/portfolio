@@ -1,4 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight, BookOpen, BrainCircuit, GraduationCap } from "lucide-react";
 import {
   works,
   experience,
@@ -160,7 +161,7 @@ export default function PortfolioSections() {
       >
         <div className="timeline">
           {experience.map((e) => (
-            <article className="experience-entry" key={e.company}>
+            <article className="experience-entry" key={e.company} data-reveal>
               <p className="entry-type">{e.period}</p>
               <h3>{e.role}</h3>
               <p className="organization">{e.company}</p>
@@ -179,9 +180,14 @@ export default function PortfolioSections() {
         <div className="container teaching-layout" data-reveal>
           <div>
             <p className="eyebrow">05 / KNOWLEDGE IS BETTER SHARED</p>
-            <h2>
-              I also <em>teach.</em>
-            </h2>
+            <div className="teaching-heading">
+              <h2>I also <em>teach.</em></h2>
+              <div className="teaching-icons" aria-hidden="true">
+                <span data-reveal><BookOpen size={25} strokeWidth={1.6} /></span>
+                <span data-reveal data-reveal-delay="90"><BrainCircuit size={25} strokeWidth={1.6} /></span>
+                <span data-reveal data-reveal-delay="180"><GraduationCap size={27} strokeWidth={1.6} /></span>
+              </div>
+            </div>
             <p>
               Helping students move from understanding an idea to building
               something with it.
@@ -236,7 +242,7 @@ export default function PortfolioSections() {
         label="THE FOUNDATION"
         title="Education"
       >
-        <article className="education-entry">
+        <article className="education-entry" data-reveal>
           <p className="entry-type">2023</p>
           <h3>B.Sc. CSIT</h3>
           <p className="organization">Tribhuvan University</p>
@@ -246,11 +252,18 @@ export default function PortfolioSections() {
           </p>
           <p className="award">Tribhuvan University Topper · 8th Semester</p>
         </article>
-        <article className="education-entry">
+        <article className="education-entry" data-reveal>
           <h3>+2 Science</h3>
           <p>VS Niketan College · GPA: 3.63 / 4.00</p>
           <p className="award">HISSAN Meritorious Student Award — 2019</p>
         </article>
+        <figure className="graduation-memory" data-reveal>
+          <a href="/image/graduation.webp" target="_blank" rel="noopener noreferrer" aria-label="Open graduation photo at full size">
+            <Image src="/image/graduation.webp" alt="Saroj Bhandari in a graduation cap and gown at a flower-adorned podium at The Soaltee, Kathmandu." width={987} height={1040} sizes="(max-width: 640px) 90vw, 440px" />
+            <span className="graduation-expand"><ArrowUpRight size={19} /> View photo</span>
+          </a>
+          <figcaption><span className="eyebrow">A MOMENT TO REMEMBER</span><strong>Graduation day.</strong><span>A milestone in a continuing journey of learning.</span></figcaption>
+        </figure>
       </Section>
 
       <section id="achievements" className="milestones container" data-reveal>
