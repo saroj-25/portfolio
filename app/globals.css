@@ -2813,9 +2813,15 @@ textarea {
 }
 
 /* Personal introduction and connected editorial cards. */
-.hero-greeting { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; font-size: .58em; letter-spacing: -1px; }
-.hero-greeting .hero-portrait { width: 96px; height: 96px; border-radius: 50%; border: 4px solid white; box-shadow: 0 0 0 1px #cfd9eb, 0 10px 25px #244b8815; }
-.hero-name { display: block; }
+.hero h1.hero-introduction { width: fit-content; max-width: 100%; display: flex; flex-direction: column; align-items: center; }
+.hero h1.hero-introduction .hero-greeting { display: block; align-self: flex-start; margin-bottom: 14px; }
+.hero h1.hero-introduction .hero-name { display: block; text-align: center; }
+.hero-portrait-link { display: block; border-radius: 50%; margin-bottom: 14px; line-height: 0; transition: transform .25s ease, box-shadow .25s ease; }
+.hero-portrait-link .hero-portrait { width: 96px; height: 96px; border-radius: 50%; border: 4px solid white; box-shadow: 0 0 0 1px #cfd9eb, 0 10px 25px #244b8815; }
+.hero-portrait-link:hover, .hero-portrait-link:focus-visible { transform: translateY(-3px) rotate(-3deg); box-shadow: 0 0 0 5px #dce8f8; }
+.hero-portrait-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
+.motion-off .hero-portrait-link { transition: none; transform: none; }
+@media (prefers-reduced-motion: reduce) { .hero-portrait-link { transition: none; } .hero-portrait-link:hover, .hero-portrait-link:focus-visible { transform: none; } }
 .hero-bottom { gap: 24px; padding-block: 24px; }
 .hero-manifesto { display: flex; flex-wrap: wrap; gap: 12px 28px; text-transform: none; letter-spacing: 0; }
 .hero-manifesto > span { display: flex; align-items: center; gap: 6px; font-size: 14px; }

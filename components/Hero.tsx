@@ -13,11 +13,11 @@ export default function Hero() {
           <span className="location-dot" /> KATHMANDU, NEPAL{" "}
           <span className="eyebrow-rule" />
         </p>
-        <h1>
-          <span className="hero-greeting">
-            Hi, I’m
+        <h1 className="hero-introduction">
+          <span className="hero-greeting">Hi, I’m</span>{" "}
+          <a className="hero-portrait-link" href="#about" aria-label="A little about Saroj Bhandari">
             <Image className="hero-portrait" src="/image/profile-icon.png" alt="" width={96} height={96} sizes="96px" />
-          </span>{" "}
+          </a>
           <span className="hero-name">Saroj Bhandari<span className="accent">.</span></span>
         </h1>
         <div className="hero-identity">
