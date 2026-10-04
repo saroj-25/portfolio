@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
-import { ArrowUpRight, Copy, Check } from "lucide-react";
+import { ArrowUpRight, Copy, Check, Mail, MapPin, MessageSquare } from "lucide-react";
 export default function Contact() {
+  const [subject, setSubject] = useState("");
   const [notice, setNotice] = useState("");
   const [copied, setCopied] = useState(false);
   async function copyEmail() {
@@ -42,7 +43,9 @@ export default function Contact() {
           conversations.
         </p>
         <div className="contact-grid">
-          <div>
+          <div className="contact-details">
+            <span className="contact-symbol" aria-hidden="true"><Mail size={30} /></span>
+            <p className="contact-kicker">A conversation can be a beginning.</p>
             <div className="email-row">
               <a href={`mailto:${PERSONAL_INFO.email}`}>
                 {PERSONAL_INFO.email}
@@ -70,7 +73,7 @@ export default function Contact() {
                 Google Scholar <ArrowUpRight size={13} />
               </a>
             </div>
-            <p className="contact-location">Kathmandu, Nepal</p>
+            <p className="contact-location"><MapPin size={16} aria-hidden="true" /> Kathmandu, Nepal</p>
             <a className="phone" href="tel:+9779844266088">
               {PERSONAL_INFO.phone}
             </a>
@@ -78,7 +81,14 @@ export default function Contact() {
               Prefer a message? This form prepares a draft in your email app.
             </p>
           </div>
-          <form onSubmit={submit}>
+          <form onSubmit={submit} className="contact-form">
+            <h3><MessageSquare size={21} aria-hidden="true" /> What’s on your mind?</h3>
+            <fieldset className="contact-topics">
+              <legend>Choose a topic, or write your own subject</legend>
+              {["Research collaboration", "Software project", "Teaching"].map(topic => (
+                <button key={topic} type="button" aria-pressed={subject === topic} onClick={() => setSubject(topic)}>{topic}</button>
+              ))}
+            </fieldset>
             <div className="form-row">
               <label htmlFor="name">
                 Name
@@ -104,7 +114,7 @@ export default function Contact() {
             </div>
             <label htmlFor="subject">
               Subject
-              <input id="subject" name="subject" required maxLength={180} />
+              <input id="subject" name="subject" value={subject} onChange={event => setSubject(event.target.value)} required maxLength={180} />
             </label>
             <label htmlFor="message">
               Message

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Code2, BrainCircuit, GraduationCap, ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import PortfolioSections from "@/components/PortfolioSections";
@@ -55,7 +56,7 @@ export default function Home() {
               </figcaption>
             </figure>
           </div>
-          <div className="section-body">
+          <div className="section-body about-story">
             <p className="lead">
               I’m interested in what happens when good engineering meets{" "}
               <em>curious thinking.</em>
@@ -73,6 +74,11 @@ export default function Home() {
               my research, and the products we build at Kritim Mind
               Technologies.
             </p>
+            <div className="about-pathways">
+              <a href="#work"><Code2 aria-hidden="true" /><strong>Build</strong><span>Useful software</span><ArrowUpRight size={16} /></a>
+              <a href="#research"><BrainCircuit aria-hidden="true" /><strong>Explore</strong><span>Applied AI &amp; ML</span><ArrowUpRight size={16} /></a>
+              <a href="#teaching"><GraduationCap aria-hidden="true" /><strong>Share</strong><span>Knowledge that lasts</span><ArrowUpRight size={16} /></a>
+            </div>
           </div>
         </section>
         <PortfolioSections />

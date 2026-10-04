@@ -16,7 +16,7 @@ export default function Hero() {
         <h1>
           <span className="hero-greeting">
             Hi, I’m
-            <Image className="hero-portrait" src="/image/profile-icon.png" alt="" width={80} height={80} sizes="(max-width: 640px) 64px, 80px" />
+            <Image className="hero-portrait" src="/image/profile-icon.png" alt="" width={96} height={96} sizes="96px" />
           </span>{" "}
           <span className="hero-name">Saroj Bhandari<span className="accent">.</span></span>
         </h1>
@@ -79,7 +79,7 @@ export default function Hero() {
       </div>
       <KnowledgeNetwork />
       <div className="hero-bottom">
-        <span>ENGINEERING WITH PURPOSE. RESEARCH WITH CURIOSITY.</span>
+        <span className="hero-manifesto"><span><Code2 size={18} aria-hidden="true" /> Engineering with <strong>purpose.</strong></span><span><BrainCircuit size={18} aria-hidden="true" /> Research with <strong>curiosity.</strong></span></span>
         <a href="#about">
           A little about me <ArrowDown size={14} />
         </a>

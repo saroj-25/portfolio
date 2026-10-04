@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight, BookOpen, BrainCircuit, GraduationCap } from "lucide-react";
+import { ArrowUpRight, BookOpen, BrainCircuit, GraduationCap, Code2, Server, PanelsTopLeft, Database, Sparkles, Terminal, FlaskConical } from "lucide-react";
 import {
   works,
   experience,
@@ -14,6 +14,9 @@ import ProjectList from "./ProjectList";
 import { RotatingText } from "./Motion";
 import TrainingGallery from "./TrainingGallery";
 import Organizations from "./Organizations";
+import CitationButton from "./CitationButton";
+
+const skillIcons = [Code2, Server, PanelsTopLeft, BrainCircuit, Database, Sparkles, Terminal];
 
 function Section({
   id,
@@ -113,8 +116,9 @@ export default function PortfolioSections() {
               <span key={s}>{s}</span>
             ))}
           </div>
-          <article className="publication">
+          <article className="publication" data-reveal>
             <div className="publication-year">
+              <BookOpen size={32} aria-hidden="true" />
               {publication.year}
               <span>JOURNAL ARTICLE</span>
             </div>
@@ -148,11 +152,14 @@ export default function PortfolioSections() {
                 <a href={publication.url}>
                   DOI: {publication.doi} <ArrowUpRight size={16} />
                 </a>
+                <CitationButton />
               </div>
             </div>
           </article>
-          <a className="research-lab-link" href={PERSONAL_INFO.lab}>
-            <span>
+          <a className="research-lab-link" data-reveal href={PERSONAL_INFO.lab}>
+            <span className="lab-emblem" aria-hidden="true"><FlaskConical size={32} /></span>
+            <span className="lab-copy">
+              <small>THE EXPERIMENTS CONTINUE</small>
               <strong>Saroj Bhandari Labs</strong>
               <span>Explore my lab on GitHub</span>
             </span>
@@ -312,12 +319,15 @@ export default function PortfolioSections() {
         title="Technical Skills"
       >
         <dl className="skills-list">
-          {skills.map(([label, value]) => (
-            <div key={label}>
-              <dt>{label}</dt>
-              <dd>{value}</dd>
-            </div>
-          ))}
+          {skills.map(([label, value], index) => {
+            const Icon = skillIcons[index];
+            return (
+              <div key={label} data-reveal data-reveal-delay={index % 2 * 80}>
+                <dt><Icon size={21} aria-hidden="true" />{label}</dt>
+                <dd>{value.split(", ").map(skill => <span key={skill}>{skill}</span>)}</dd>
+              </div>
+            );
+          })}
         </dl>
       </Section>
 
