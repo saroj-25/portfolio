@@ -8,11 +8,12 @@ import {
   interests,
   publication,
 } from "@/data/redesign";
-import { PROJECTS } from "@/data/portfolioData";
+import { PERSONAL_INFO, PROJECTS } from "@/data/portfolioData";
 import type { ReactNode } from "react";
 import ProjectList from "./ProjectList";
 import { RotatingText } from "./Motion";
 import TrainingGallery from "./TrainingGallery";
+import Organizations from "./Organizations";
 
 function Section({
   id,
@@ -150,6 +151,13 @@ export default function PortfolioSections() {
               </div>
             </div>
           </article>
+          <a className="research-lab-link" href={PERSONAL_INFO.lab}>
+            <span>
+              <strong>Saroj Bhandari Labs</strong>
+              <span>Explore my lab on GitHub</span>
+            </span>
+            <ArrowUpRight size={23} aria-hidden="true" />
+          </a>
         </div>
       </section>
 
@@ -164,7 +172,7 @@ export default function PortfolioSections() {
             <article className="experience-entry" key={e.company} data-reveal>
               <p className="entry-type">{e.period}</p>
               <h3>{e.role}</h3>
-              <p className="organization">{e.company}</p>
+              <Organizations names={e.organizations} />
               <p className="location">{e.location}</p>
               <ul>
                 {e.points.map((p) => (
@@ -242,6 +250,7 @@ export default function PortfolioSections() {
         label="THE FOUNDATION"
         title="Education"
       >
+        <div className="education-summary"><div>
         <article className="education-entry" data-reveal>
           <p className="entry-type">2023</p>
           <h3>B.Sc. CSIT</h3>
@@ -257,18 +266,22 @@ export default function PortfolioSections() {
           <p>VS Niketan College · GPA: 3.63 / 4.00</p>
           <p className="award">HISSAN Meritorious Student Award — 2019</p>
         </article>
+        </div>
         <figure className="graduation-memory" data-reveal>
           <a href="/image/graduation.webp" target="_blank" rel="noopener noreferrer" aria-label="Open graduation photo at full size">
             <Image src="/image/graduation.webp" alt="Saroj Bhandari in a graduation cap and gown at a flower-adorned podium at The Soaltee, Kathmandu." width={987} height={1040} sizes="(max-width: 640px) 90vw, 440px" />
             <span className="graduation-expand"><ArrowUpRight size={19} /> View photo</span>
           </a>
-          <figcaption><span className="eyebrow">A MOMENT TO REMEMBER</span><strong>Graduation day.</strong><span>A milestone in a continuing journey of learning.</span></figcaption>
+          <figcaption><strong>B.Sc. CSIT graduation</strong></figcaption>
         </figure>
+        </div>
       </Section>
 
       <section id="achievements" className="milestones container" data-reveal>
-        <p className="eyebrow">A FEW MILESTONES</p>
-        <h2 className="sr-only">Achievements &amp; Highlights</h2>
+        <div className="achievement-layout">
+        <div>
+        <p className="eyebrow">ACHIEVEMENTS</p>
+        <h2>A few milestones.</h2>
         <dl className="milestone-list">
           {[
             ["86%", "B.Sc. CSIT"],
@@ -282,6 +295,14 @@ export default function PortfolioSections() {
             </div>
           ))}
         </dl>
+        </div>
+        <figure className="achievement-photo">
+          <a href="/image/tu-topper.webp" target="_blank" rel="noopener noreferrer" aria-label="View TU Topper recognition at full size">
+            <Image src="/image/tu-topper.webp" alt="Orchid International College congratulates Saroj Bhandari as TU Topper with 92.4% in the B.Sc. CSIT eighth semester." width={526} height={527} sizes="(max-width: 640px) 220px, 240px" />
+          </a>
+          <figcaption>TU Topper · 8th semester</figcaption>
+        </figure>
+        </div>
       </section>
 
       <Section

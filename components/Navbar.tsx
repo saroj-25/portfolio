@@ -67,7 +67,7 @@ export default function Navbar() {
     <header ref={header} className={`site-header ${compact ? "compact" : ""}`}>
       <div className="nav-wrap">
         <a className="wordmark" href="#home" onClick={closeMenu}>
-          Saroj Bhandari
+          <span className="nav-name">Saroj <strong>Bhandari</strong><span className="nav-name-dot" aria-hidden="true">.</span></span>
         </a>
         <nav
           id="main-navigation"

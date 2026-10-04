@@ -66,6 +66,7 @@ export const PERSONAL_INFO = {
   phone: "(+977) 9844266088",
   email: "saroj.bhandari.cs@gmail.com",
   github: "https://github.com/saroj-25",
+  lab: "https://github.com/Saroj-Bhandari-Labs",
   linkedin: "https://linkedin.com/in/sarojbhandari17",
   twitter: "https://x.com/saroj_bhandari0",
   status: "Founder & CEO @ Kritim Mind Technology | Open for Technical Consultations",

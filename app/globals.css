@@ -2742,3 +2742,72 @@ textarea {
 @media (max-width: 1000px) { .organization-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .organization-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .organization-link strong { font-size: 11px; } }
 @media (prefers-reduced-motion: reduce) { .teaching-icons svg { animation: none; } }
+
+.research-lab-link { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0 4px; margin-top: 24px; border-top: 1px solid var(--line); color: var(--ink); }
+.research-lab-link strong { display: block; font-size: 19px; font-weight: 650; }
+.research-lab-link span > span { display: block; margin-top: 4px; font-size: 14px; color: var(--muted); }
+.research-lab-link > svg { color: var(--accent); transition: transform .2s; }
+.research-lab-link:hover, .research-lab-link:focus-visible { text-decoration: none; color: var(--accent); }
+.research-lab-link:hover > svg { transform: translate(3px, -3px); }
+@media (prefers-reduced-motion: reduce) { .research-lab-link > svg { transition: none; } }
+
+/* Compact highlights, with organization identities kept in context. */
+.wordmark .nav-name { font-size: 19px; font-weight: 450; letter-spacing: -.7px; color: var(--ink); }
+.nav-name strong { font-weight: 750; }
+.wordmark .nav-name-dot { color: var(--accent); font-weight: 800; }
+.experience-organizations { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 10px; }
+.experience-organization { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink); font-weight: 550; }
+.experience-logo { display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; background: white; border: 1px solid var(--line); border-radius: 10px; }
+.experience-logo img { max-width: 36px; max-height: 36px; width: auto; height: auto; object-fit: contain; }
+.education-summary { display: grid; grid-template-columns: minmax(0, 1fr) minmax(180px, 260px); gap: 28px; align-items: start; }
+.education-summary .graduation-memory { margin-top: 0; }
+.education-summary .graduation-memory figcaption { padding-top: 10px; }
+.education-summary .graduation-memory figcaption strong { font-size: 14px; letter-spacing: 0; }
+.achievement-layout { display: grid; grid-template-columns: minmax(0, 1fr) 240px; align-items: center; gap: 50px; border-block: 1px solid var(--line); padding-block: 28px; }
+.achievement-layout h2 { margin: 8px 0 22px; font-size: 28px; }
+.achievement-layout .milestone-list { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.achievement-layout .milestone-list > div { padding-top: 12px; }
+.achievement-layout .milestone-list dd { font-size: 34px; font-weight: 650; letter-spacing: -1.5px; margin: 0; }
+.achievement-layout .milestone-list dt { font-size: 12px; line-height: 1.5; }
+.achievement-photo a { display: block; border-radius: 16px; overflow: hidden; }
+.achievement-photo img { display: block; width: 100%; height: auto; }
+.achievement-photo figcaption { margin-top: 8px; font-size: 12px; color: var(--muted); text-align: center; }
+.training-collage { display: grid; grid-template-columns: 1.5fr 1fr 1fr; grid-template-rows: repeat(2, 180px); gap: 14px; }
+.training-collage .training-photo { position: relative; min-width: 0; overflow: hidden; border-radius: 18px; background: #e7ecf2; }
+.training-collage .training-photo:first-child { grid-row: span 2; }
+.training-collage .training-image-button, .training-collage .training-image-window { width: 100%; height: 100%; border-radius: inherit; aspect-ratio: auto !important; }
+.training-collage .training-image { height: 100%; object-fit: cover; object-position: 55% 45%; transform: none; transition: transform .4s ease; }
+.training-collage .training-image-button:hover .training-image, .training-collage .training-image-button:focus-visible .training-image { transform: scale(1.035); }
+.training-collage figcaption { position: absolute; inset: auto 0 0; margin: 0; padding: 35px 15px 14px; background: linear-gradient(transparent, #111f36e6); color: white; font-size: 13px; font-weight: 650; line-height: 1.4; pointer-events: none; }
+.training-collage .training-photo:first-child figcaption { font-size: 18px; padding: 45px 20px 20px; }
+.training-collage .photo-number { display: none; }
+.training-collage .training-expand { top: 12px; bottom: auto; right: 12px; width: 30px; height: 30px; }
+.training-collage .training-photo:focus-within { outline: 2px solid var(--accent); outline-offset: 3px; }
+.gallery-collection { margin-top: 18px; }
+.gallery-collection summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 14px 18px; border: 1px solid var(--line); border-radius: 12px; color: var(--accent); font-size: 14px; font-weight: 650; cursor: pointer; list-style: none; }
+.gallery-collection summary::-webkit-details-marker { display: none; }
+.gallery-collection summary:hover { background: #edf3fc; }
+.gallery-collection summary > span:last-child { font-size: 22px; line-height: 1; }
+.gallery-collection[open] summary > span:last-child { transform: rotate(45deg); }
+.gallery-collection .training-photo-grid { padding-top: 20px; }
+.motion-off .training-collage .training-image-button .training-image { transform: none; }
+@media (max-width: 900px) {
+  .education-summary { grid-template-columns: 1fr; }
+  .education-summary .graduation-memory { max-width: 260px; }
+  .achievement-layout { gap: 24px; grid-template-columns: minmax(0, 1fr) 200px; }
+  .achievement-layout .milestone-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .training-collage { grid-template-rows: repeat(2, 155px); }
+}
+@media (max-width: 640px) {
+  .wordmark .nav-name { font-size: 17px; }
+  .achievement-layout { grid-template-columns: 1fr; }
+  .achievement-photo { width: 220px; justify-self: center; }
+  .training-collage { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: 220px 145px 145px; gap: 10px; }
+  .training-collage .training-photo:first-child { grid-row: auto; grid-column: span 2; }
+  .training-collage figcaption { font-size: 12px; padding-inline: 12px; }
+  .training-collage .training-photo:first-child figcaption { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .training-collage .training-image { transition: none; }
+  .training-collage .training-image-button .training-image { transform: none; }
+}

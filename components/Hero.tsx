@@ -15,8 +15,8 @@ export default function Hero() {
         </p>
         <h1>
           <span className="hero-greeting">
-            <Image className="hero-portrait" src="/image/profile-icon.png" alt="" width={80} height={80} sizes="(max-width: 640px) 64px, 80px" />
             Hi, I’m
+            <Image className="hero-portrait" src="/image/profile-icon.png" alt="" width={80} height={80} sizes="(max-width: 640px) 64px, 80px" />
           </span>{" "}
           <span className="hero-name">Saroj Bhandari<span className="accent">.</span></span>
         </h1>
@@ -57,6 +57,9 @@ export default function Hero() {
         <div className="social-links">
           <a href={PERSONAL_INFO.github}>
             GitHub <ArrowUpRight size={13} />
+          </a>
+          <a href={PERSONAL_INFO.lab}>
+            My Lab <ArrowUpRight size={13} />
           </a>
           <a href={PERSONAL_INFO.linkedin}>
             LinkedIn <ArrowUpRight size={13} />

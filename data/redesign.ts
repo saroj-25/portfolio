@@ -108,6 +108,7 @@ export const experience = [
   {
     role: "CEO",
     company: "Kritim Mind Technologies Pvt. Ltd.",
+    organizations: ["kritim-mind"] as const,
     location: "Nepal",
     period: "2025 – Present",
     points: [
@@ -118,16 +119,17 @@ export const experience = [
   {
     role: "Development Team Lead",
     company: "Mirai Design and Print LLC",
+    organizations: ["mirai-design"] as const,
     location: "Remote",
     period: "2025 – Present",
     points: [
       "Lead the development team.",
-      "Responsibilities and technology details: to be added.",
     ],
   },
   {
     role: "Software Engineer",
     company: "Pahadi Research LLC",
+    organizations: ["pahadi-research"] as const,
     location: "Remote · Seattle",
     period: "2024 – Present",
     points: [
@@ -139,12 +141,13 @@ export const experience = [
   {
     role: "Adjunct Lecturer",
     company: "Texas International College | Aadim National College",
+    organizations: ["texas-college", "aadim-college"] as const,
     location: "Nepal",
     period: "2024-Present",
     points: [
       "Teach undergraduate computer science, including AI, algorithms, and database systems.",
       "Guide students through programming, machine learning projects, and research.",
-       "Supervised more than 50 projects in Software Development and Robiotics.",
+       "Supervised more than 50 projects in software development and robotics.",
     ],
   },
 ];

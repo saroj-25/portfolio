@@ -34,7 +34,7 @@ function PhotoImage({
         sizes={
           expanded
             ? "(max-width: 800px) 94vw, 1100px"
-            : "(max-width: 640px) 100vw, (max-width: 900px) 50vw, 380px"
+            : "(max-width: 640px) 100vw, (max-width: 900px) 50vw, 600px"
         }
         className="training-image"
         loading={expanded ? "eager" : "lazy"}
@@ -127,9 +127,15 @@ export default function TrainingGallery() {
           <span key={topic}>{topic}</span>
         ))}
       </div>
-      <div className="training-photo-grid">
-        {trainingPhotos.map((_, index) => thumbnail(index))}
+      <div className="training-collage">
+        {trainingPhotos.slice(0, 5).map((_, index) => thumbnail(index))}
       </div>
+      <details className="gallery-collection">
+        <summary><span>Explore all {trainingPhotos.length} photos</span><span aria-hidden="true">+</span></summary>
+        <div className="training-photo-grid">
+          {trainingPhotos.slice(5).map((_, index) => thumbnail(index + 5))}
+        </div>
+      </details>
       <p className="training-gallery-note">
         Classroom learning, live demonstrations, and online training. Select a
         photo for a closer look.
