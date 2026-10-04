@@ -131,15 +131,15 @@ export default function TrainingGallery() {
       </div>
       <div className="training-feature-grid">
         {thumbnail(0, true)}
-        {thumbnail(8, true)}
+        {thumbnail(1, true)}
       </div>
       <details className="training-more">
         <summary>
-          <span>View 8 more training photos</span>
+          <span>View {trainingPhotos.length - 2} more training photos</span>
           <span aria-hidden="true">+</span>
         </summary>
         <div className="training-photo-grid">
-          {[9, 7, 1, 2, 3, 4, 5, 6].map((index) => thumbnail(index))}
+          {trainingPhotos.slice(2).map((_, index) => thumbnail(index + 2))}
         </div>
       </details>
       <p className="training-gallery-note">
