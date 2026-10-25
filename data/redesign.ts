@@ -104,7 +104,7 @@ export const works = [
     paper: null,
   },
 ];
-export const featuredWorks = works.filter((work) => work.visual === "chatbot" || work.visual === "education");
+export const featuredWorks = works.filter((work) => ["chatbot", "education", "research"].includes(work.visual));
 export const moreWorks = works.filter((work) => !featuredWorks.includes(work));
 export const experience = [
   {

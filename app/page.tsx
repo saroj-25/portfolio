@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Code2, BrainCircuit, GraduationCap, ArrowUpRight } from "lucide-react";
+import { Code2, BrainCircuit, GraduationCap, ArrowRight, ArrowDown } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import PortfolioSections from "@/components/PortfolioSections";
@@ -75,10 +75,13 @@ export default function Home() {
               Technologies.
             </p>
             <div className="about-pathways">
-              <a href="#work"><Code2 aria-hidden="true" /><strong>Build</strong><span>Useful software</span><ArrowUpRight size={16} /></a>
-              <a href="#research"><BrainCircuit aria-hidden="true" /><strong>Explore</strong><span>Applied AI &amp; ML</span><ArrowUpRight size={16} /></a>
-              <a href="#teaching"><GraduationCap aria-hidden="true" /><strong>Share</strong><span>Knowledge that lasts</span><ArrowUpRight size={16} /></a>
+              <a href="#work" data-tone="build"><span className="pathway-icon"><Code2 size={22} aria-hidden="true" /></span><strong>Build</strong><span>Useful software</span><ArrowRight className="pathway-arrow" size={18} aria-hidden="true" /></a>
+              <a href="#research" data-tone="explore"><span className="pathway-icon"><BrainCircuit size={22} aria-hidden="true" /></span><strong>Explore</strong><span>Applied AI &amp; ML</span><ArrowRight className="pathway-arrow" size={18} aria-hidden="true" /></a>
+              <a href="#teaching" data-tone="share"><span className="pathway-icon"><GraduationCap size={22} aria-hidden="true" /></span><strong>Share</strong><span>Knowledge that lasts</span><ArrowRight className="pathway-arrow" size={18} aria-hidden="true" /></a>
             </div>
+            <a className="about-next" href="#work">
+              See what I&rsquo;ve built <ArrowDown size={16} aria-hidden="true" />
+            </a>
           </div>
         </section>
         <PortfolioSections />

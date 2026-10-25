@@ -6,20 +6,21 @@
   --accent: #285b80;
   --line: #dfe5e9;
   --wash: #f7f9fa;
+  --zoom: 1;
   background: var(--paper);
   font-size: 16px;
 }
-.simple-portfolio .container { max-width: 1240px; padding-inline: 32px; }
+.simple-portfolio .container { width: 100%; max-width: 1480px; padding-inline: clamp(24px, 4vw, 48px); }
 .simple-portfolio h1, .simple-portfolio h2, .simple-portfolio h3 { font-family: Georgia, 'Times New Roman', serif; letter-spacing: -.5px; }
 .simple-portfolio h2 { font-size: 32px; line-height: 1.25; color: var(--accent); font-weight: 600; }
 .simple-portfolio h2 em { font: inherit; color: inherit; }
 .simple-portfolio h2 br { display: none; }
 .simple-portfolio .site-header { background: #fffffff5; border-bottom: 1px solid var(--line); backdrop-filter: none; }
-.simple-portfolio .nav-wrap { max-width: 1240px; padding-inline: 32px; min-height: 80px; }
+.simple-portfolio .nav-wrap { width: 100%; max-width: 1480px; padding-inline: clamp(24px, 4vw, 48px); min-height: 80px; }
 .simple-portfolio .compact .nav-wrap { min-height: 68px; }
 .simple-portfolio .navigation a { font-size: 14px; }
 .simple-portfolio .eyebrow, .simple-portfolio .section-label > span { color: var(--muted); font-size: 10px; letter-spacing: 1.4px; }
-.simple-portfolio .hero { grid-template-columns: 240px minmax(0, 1fr); gap: 32px 64px; align-items: center; padding-top: 85px; }
+.simple-portfolio .hero { grid-template-columns: 240px minmax(0, 1fr); gap: 32px 64px; align-items: center; padding-top: 64px; }
 .simple-portfolio .hero-main-photo { display: block; width: 240px; height: 240px; border-radius: 50%; }
 .simple-portfolio .hero-main-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 6px solid #fff; box-shadow: 0 0 0 1px var(--line), 0 5px 18px #26313912; }
 .simple-portfolio .hero h1.hero-introduction { display: block; font-size: clamp(30px, 3.3vw, 43px); line-height: 1.2; margin-top: 14px; }
@@ -32,7 +33,7 @@
 .simple-portfolio .hero-specialties { gap: 8px 18px; margin-top: 20px; }
 .simple-portfolio .hero-specialties a { padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; font-size: 12px; }
 .simple-portfolio .hero-specialties svg { display: none; }
-.simple-portfolio .hero-intro { margin-top: 20px; max-width: 640px; font-size: 15px; line-height: 1.8; }
+.simple-portfolio .hero-intro { margin-top: 20px; max-width: 700px; font-size: 15px; line-height: 1.8; }
 .simple-portfolio .hero-actions { margin-top: 22px; gap: 12px; }
 .simple-portfolio .button { min-height: 42px; padding: 9px 16px; border-radius: 4px; font-size: 13px; box-shadow: none; transform: none; }
 .simple-portfolio .primary { background: var(--accent); color: #fff; }
@@ -51,10 +52,6 @@
 .simple-portfolio .about-photo img { width: 48px; height: 48px; }
 .simple-portfolio .about-story { padding: 0; border: 0; border-radius: 0; background: none; text-align: center; max-width: 920px; }
 .simple-portfolio .about-section .lead { font-size: 22px; line-height: 1.6; }
-.simple-portfolio .about-pathways { margin-top: 28px; gap: 24px; }
-.simple-portfolio .about-pathways a { border-top: 1px solid var(--line); padding: 15px 4px; border-radius: 0; }
-.simple-portfolio .about-pathways a > svg { display: none; }
-.simple-portfolio .about-pathways strong { font-size: 15px; font-weight: 600; }
 .simple-portfolio .work-section, .simple-portfolio .training-section { padding-block: 65px; }
 .simple-portfolio .editorial-heading { display: block; text-align: center; margin-bottom: 35px; }
 .simple-portfolio .editorial-heading h2 { font-size: 32px; margin-top: 10px; }
@@ -108,13 +105,11 @@
 .simple-portfolio .training-topics { justify-content: center; }
 .simple-portfolio .training-collage .training-photo { border-radius: 4px; }
 .simple-portfolio .gallery-collection summary { border-radius: 4px; }
-.simple-portfolio .education-summary { gap: 45px; grid-template-columns: minmax(0, 1fr) 210px; }
+.simple-portfolio .education-summary { gap: 48px; grid-template-columns: minmax(0, 620px) 250px; justify-content: center; align-items: center; }
 .simple-portfolio .graduation-memory a, .simple-portfolio .achievement-photo a { border-radius: 4px; }
 .simple-portfolio .achievement-layout { gap: 40px; padding-block: 30px; }
 .simple-portfolio .milestone-list dd { color: var(--accent); }
-.simple-portfolio #skills .skills-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
 .simple-portfolio #skills .skills-list > div { display: flex; flex-direction: column; padding: 20px; background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: none; transition: transform .25s, box-shadow .25s, border-color .25s; }
-.simple-portfolio #skills .skills-list > div:last-child { grid-column: auto; }
 .simple-portfolio #skills .skills-list > div:hover { transform: translateY(-3px); border-color: #b9cad8; box-shadow: 0 12px 28px #2631390f; }
 .simple-portfolio #skills .skills-list dt { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; font-size: 15px; font-weight: 650; color: var(--ink); }
 .simple-portfolio #skills .skills-list dt svg { box-sizing: content-box; padding: 8px; border-radius: 11px; background: #eaf1f7; color: var(--accent); }
@@ -138,13 +133,12 @@
 .simple-portfolio .contact-form input, .simple-portfolio .contact-form textarea, .simple-portfolio .contact-form .button, .simple-portfolio .contact-topics button { border-radius: 4px; }
 .simple-portfolio .footer { font-size: 12px; padding-block: 26px; }
 @media (max-width: 950px) {
-  .simple-portfolio .container, .simple-portfolio .nav-wrap { padding-inline: 24px; }
   .simple-portfolio .hero { grid-template-columns: 190px minmax(0, 1fr); gap: 35px; padding-top: 55px; }
   .simple-portfolio .hero-main-photo { width: 190px; height: 190px; }
   .simple-portfolio .navigation { background: white; }
 }
 @media (max-width: 640px) {
-  .simple-portfolio .container, .simple-portfolio .nav-wrap { padding-inline: 16px; }
+  .simple-portfolio .container, .simple-portfolio .nav-wrap { padding-inline: 20px; }
   .simple-portfolio .nav-wrap { min-height: 68px; }
   .simple-portfolio .hero { display: flex; flex-direction: column; gap: 28px; padding-top: 36px; text-align: center; }
   .simple-portfolio .hero-main-photo { width: 160px; height: 160px; }
@@ -155,7 +149,6 @@
   .simple-portfolio .hero-manifesto { justify-content: center; }
   .simple-portfolio .section, .simple-portfolio .research-band, .simple-portfolio .work-section, .simple-portfolio .training-section { padding-block: 48px; }
   .simple-portfolio .section-label h2, .simple-portfolio .editorial-heading h2 { font-size: 29px; }
-  .simple-portfolio .about-pathways { gap: 12px; }
   .simple-portfolio .case-study { gap: 12px; grid-template-columns: 25px minmax(0, 1fr); }
   .simple-portfolio .case-copy h3 { font-size: 23px; }
   .simple-portfolio .research-band .publication { display: block; }
@@ -167,8 +160,6 @@
   .simple-portfolio .achievement-layout { grid-template-columns: 1fr; }
   .simple-portfolio .achievement-photo { max-width: 220px; margin-inline: auto; }
   .simple-portfolio .achievement-layout .milestone-list { grid-template-columns: repeat(2, 1fr); }
-  .simple-portfolio #skills .skills-list { grid-template-columns: 1fr; gap: 12px; }
-  .simple-portfolio #skills .skills-list > div { padding: 18px 16px; }
   .simple-portfolio .contact-grid { grid-template-columns: 1fr; gap: 28px; }
   .simple-portfolio .contact-band h2 { font-size: 32px; }
   .simple-portfolio .contact-form { padding: 20px; }
@@ -181,7 +172,7 @@
 .simple-portfolio .about-section .lead { margin-inline: auto; }
 
 /* Selected work: two featured project cards. */
-.simple-portfolio .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-bottom: 28px; }
+.simple-portfolio .work-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-bottom: 28px; }
 .simple-portfolio .work-card { --tone: #247e76; --tone-wash: #e7f3f1; display: flex; flex-direction: column; overflow: hidden; background: #fff; border: 1px solid var(--line); border-radius: 20px; transition: transform .25s, box-shadow .25s, border-color .25s; }
 .simple-portfolio .work-card-education { --tone: #4f5fb8; --tone-wash: #eceffb; }
 .simple-portfolio .work-card-connect { --tone: #285b80; --tone-wash: #e7eff6; }
@@ -494,4 +485,89 @@
   .simple-portfolio .lab-line { animation: none; opacity: 1; }
   .simple-portfolio .lab-cursor { animation: none; }
   .simple-portfolio .lab-terminal:hover, .simple-portfolio .lab-primary:hover, .simple-portfolio .contact-pick-card:hover { transform: none; }
+}
+
+/* ---- Layout & interaction refinements ---- */
+
+/* Hero: fill the first screen so the "Engineering with purpose" strip is visible
+   without scrolling. Viewport units are scaled by zoom, so divide it back out. */
+@media (min-width: 641px) {
+  .simple-portfolio .hero { min-height: min(calc((100svh - 80px * var(--zoom)) / var(--zoom)), 960px); grid-template-rows: 1fr auto; padding-top: clamp(24px, 5svh, 64px); padding-bottom: 0; }
+  .simple-portfolio .hero-bottom { align-self: end; margin-top: 0; }
+}
+
+/* A little context: pathway cards with icons and moving arrows. */
+.simple-portfolio .about-pathways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 32px; }
+.simple-portfolio .about-pathways a { --tone: var(--accent); --tone-wash: #eaf1f7; position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 20px 18px 18px; text-align: left; border: 1px solid var(--line); border-radius: 18px; background: #fff; color: var(--ink); transition: transform .25s, border-color .25s, box-shadow .25s; }
+.simple-portfolio .about-pathways a[data-tone="explore"] { --tone: #247e76; --tone-wash: #e5f3f0; }
+.simple-portfolio .about-pathways a[data-tone="share"] { --tone: #5a4fb0; --tone-wash: #eeecf9; }
+.simple-portfolio .about-pathways a:hover, .simple-portfolio .about-pathways a:focus-visible { transform: translateY(-4px); border-color: var(--tone); box-shadow: 0 14px 30px #2631391a; text-decoration: none; }
+.simple-portfolio .pathway-icon { display: grid; place-items: center; width: 46px; height: 46px; margin-bottom: 10px; border-radius: 14px; background: var(--tone-wash); color: var(--tone); transition: background .25s, color .25s, transform .35s; }
+.simple-portfolio .about-pathways a:hover .pathway-icon { background: var(--tone); color: #fff; transform: rotate(-8deg) scale(1.06); }
+.simple-portfolio .about-pathways strong { font-size: 17px; font-weight: 650; }
+.simple-portfolio .about-pathways span:not(.pathway-icon) { font-size: 13px; color: var(--muted); }
+.simple-portfolio .about-pathways .pathway-arrow { position: absolute; top: 22px; right: 18px; color: var(--tone); animation: pathway-nudge 1.8s ease-in-out infinite; }
+.simple-portfolio .about-pathways a:nth-child(2) .pathway-arrow { animation-delay: .25s; }
+.simple-portfolio .about-pathways a:nth-child(3) .pathway-arrow { animation-delay: .5s; }
+.simple-portfolio .about-pathways a:hover .pathway-arrow { animation-duration: .8s; }
+.simple-portfolio .about-next { display: inline-flex; align-items: center; gap: 8px; margin-top: 26px; padding: 9px 16px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--accent); font-size: 14px; font-weight: 600; transition: border-color .2s, box-shadow .2s; }
+.simple-portfolio .about-next:hover { text-decoration: none; border-color: var(--accent); box-shadow: 0 8px 20px #2631390f; }
+.simple-portfolio .about-next svg { animation: about-bounce 1.6s ease-in-out infinite; }
+@keyframes pathway-nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
+@keyframes about-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
+/* Research: a little more breathing room on the sides. */
+.simple-portfolio .research-band .container > .pub-card { max-width: 1160px; }
+.simple-portfolio .pub-body { padding: 36px 44px; }
+
+/* Expanded gallery button: only the "+" rotates, never the label. */
+.simple-portfolio .gallery-collection summary > span:first-child { float: none; transform: none; }
+
+/* Technical skills: one row that slides continuously; pauses on hover. */
+.simple-portfolio .skills-marquee { overflow: hidden; margin-inline: calc(-1 * clamp(24px, 4vw, 48px)); padding-block: 6px 14px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.simple-portfolio .skills-track { display: flex; width: max-content; animation: skills-slide 45s linear infinite; }
+.simple-portfolio .skills-marquee:hover .skills-track, .simple-portfolio .skills-marquee:focus-within .skills-track { animation-play-state: paused; }
+.simple-portfolio #skills .skills-list { display: flex; gap: 16px; margin: 0; padding-right: 16px; }
+.simple-portfolio #skills .skills-list > div { flex: 0 0 300px; display: flex; flex-direction: column; padding: 20px; background: #fff; border: 1px solid var(--line); border-radius: 18px; transition: transform .25s, box-shadow .25s, border-color .25s; }
+@keyframes skills-slide { to { transform: translateX(-50%); } }
+.motion-off .skills-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+.motion-off #skills .skills-list[aria-hidden="true"] { display: none; }
+
+/* Contact: keep the cards and form in a calmer, centred column. */
+.simple-portfolio .contact-band h2 { margin-inline: auto; }
+.simple-portfolio .contact-pick, .simple-portfolio .contact-grid { max-width: 1160px; margin-inline: auto; }
+
+@media (max-width: 1100px) {
+  .simple-portfolio .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .simple-portfolio .about-pathways { grid-template-columns: 1fr; }
+  .simple-portfolio .pub-body { padding: 22px 18px; }
+}
+@media (max-width: 640px) {
+  .simple-portfolio .skills-marquee { margin-inline: -20px; }
+  .simple-portfolio #skills .skills-list > div { flex-basis: 260px; padding: 18px 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .simple-portfolio .about-pathways .pathway-arrow, .simple-portfolio .about-next svg { animation: none; }
+  .simple-portfolio .about-pathways a:hover { transform: none; }
+  .simple-portfolio .skills-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .simple-portfolio .skills-track { animation: none; }
+  .simple-portfolio #skills .skills-list[aria-hidden="true"] { display: none; }
+}
+
+/* Large screens: a slightly closer, proportional view. Zoom scales the hero,
+   type, buttons and navigation together; the lightbox is compensated so it
+   still fits the viewport. */
+@media (min-width: 1200px) {
+  .simple-portfolio { zoom: 1.06; --zoom: 1.06; }
+  .simple-portfolio .training-lightbox { zoom: .9434; }
+}
+@media (min-width: 1600px) {
+  .simple-portfolio { zoom: 1.12; --zoom: 1.12; }
+  .simple-portfolio .training-lightbox { zoom: .8929; }
+}
+@media (min-width: 1880px) {
+  .simple-portfolio { zoom: 1.2; --zoom: 1.2; }
+  .simple-portfolio .training-lightbox { zoom: .8333; }
 }

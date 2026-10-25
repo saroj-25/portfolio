@@ -344,17 +344,23 @@ export default function PortfolioSections() {
         label="THE TOOLKIT"
         title="Technical Skills"
       >
-        <dl className="skills-list">
-          {skills.map(([label, value], index) => {
-            const Icon = skillIcons[index];
-            return (
-              <div key={label} data-reveal data-reveal-delay={index % 2 * 80}>
-                <dt><Icon size={21} aria-hidden="true" />{label}</dt>
-                <dd>{value.split(", ").map(skill => <span key={skill}>{skill}</span>)}</dd>
-              </div>
-            );
-          })}
-        </dl>
+        <div className="skills-marquee">
+          <div className="skills-track">
+            {[false, true].map((copy) => (
+              <dl key={String(copy)} className="skills-list" aria-hidden={copy || undefined}>
+                {skills.map(([label, value], index) => {
+                  const Icon = skillIcons[index];
+                  return (
+                    <div key={label}>
+                      <dt><Icon size={21} aria-hidden="true" />{label}</dt>
+                      <dd>{value.split(", ").map(skill => <span key={skill}>{skill}</span>)}</dd>
+                    </div>
+                  );
+                })}
+              </dl>
+            ))}
+          </div>
+        </div>
       </Section>
 
       <section id="entrepreneurship" className="venture container" data-reveal>
