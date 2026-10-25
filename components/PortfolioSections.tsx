@@ -78,7 +78,7 @@ export default function PortfolioSections() {
             </h2>
           </div>
           <p>
-            Useful software.
+            Useful software.{" "}
             <br />
             <em>Thoughtful experiments.</em>
           </p>
@@ -106,7 +106,7 @@ export default function PortfolioSections() {
               </h2>
             </div>
             <p>
-              Language. Retrieval. Learning.
+              Language. Retrieval. Learning.{" "}
               <br />
               AI that works for Nepali learners.
             </p>
