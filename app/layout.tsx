@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./simple.css";
 import { Geist } from "next/font/google";
 import { MotionProvider } from "@/components/Motion";
-import { SITE_URL, SITE_TITLE, SITE_DESCRIPTION } from "@/data/seo";
+import { SITE_URL, SITE_TITLE, SITE_DESCRIPTION, SITE_KEYWORDS } from "@/data/seo";
 const geist = Geist({
   subsets: ["latin"],
   display: "swap",
@@ -14,7 +15,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title,
   description,
-  authors: [{ name: "Saroj Bhandari" }],
+  applicationName: "Saroj Bhandari",
+  keywords: SITE_KEYWORDS,
+  authors: [{ name: "Saroj Bhandari", url: SITE_URL }],
+  creator: "Saroj Bhandari",
+  publisher: "Saroj Bhandari",
+  category: "technology",
   openGraph: {
     title,
     description,
@@ -26,6 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
+    creator: "@saroj_bhandari0",
     title,
     description,
     images: [{ url: "/image/profile.jpeg", alt: "Saroj Bhandari" }],
@@ -44,7 +51,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={geist.variable}>
-      <body>
+      <body className="simple-portfolio">
         <MotionProvider>{children}</MotionProvider>
       </body>
     </html>

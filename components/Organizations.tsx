@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 const organizations = {
-  "kritim-mind": { name: "Kritim Mind Technologies Pvt. Ltd.", width: 32, height: 32 },
-  "aadim-college": { name: "Aadim National College", width: 28, height: 28 },
-  "texas-college": { name: "Texas International College", width: 28, height: 28 },
+  "kritim-mind": { name: "Kritim Mind Technologies Pvt. Ltd.", width: 128, height: 128 },
+  "aadim-college": { name: "Aadim National College", width: 128, height: 128 },
+  "texas-college": { name: "Texas International College", width: 128, height: 128 },
   "pahadi-research": { name: "Pahadi Research LLC", width: 200, height: 188 },
   "mirai-design": { name: "Mirai Design and Print LLC", width: 160, height: 148 },
 };

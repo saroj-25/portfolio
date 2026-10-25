@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { ArrowUpRight, BookOpen, BrainCircuit, GraduationCap, Code2, Server, PanelsTopLeft, Database, Sparkles, Terminal, FlaskConical } from "lucide-react";
+import { ArrowUpRight, BookOpen, BrainCircuit, GraduationCap, Code2, Server, PanelsTopLeft, Database, Sparkles, Terminal, FlaskConical, CalendarDays, MapPin, ChevronDown, FileText, Smile, Target } from "lucide-react";
 import {
-  works,
+  featuredWorks,
+  moreWorks,
   experience,
   skills,
   subjects,
@@ -9,12 +10,15 @@ import {
   publication,
 } from "@/data/redesign";
 import { PERSONAL_INFO, PROJECTS } from "@/data/portfolioData";
-import type { ReactNode } from "react";
-import ProjectList from "./ProjectList";
-import { RotatingText } from "./Motion";
+import { SCHOLAR_URL } from "@/data/seo";
+import type { CSSProperties, ReactNode } from "react";
+import ProjectList, { type ProjectCard } from "./ProjectList";
+import TeachingShowcase from "./TeachingShowcase";
 import TrainingGallery from "./TrainingGallery";
 import Organizations from "./Organizations";
 import CitationButton from "./CitationButton";
+import { GitHubIcon } from "./SocialIcons";
+import LabTerminal from "./LabTerminal";
 
 const skillIcons = [Code2, Server, PanelsTopLeft, BrainCircuit, Database, Sparkles, Terminal];
 
@@ -45,13 +49,24 @@ function Section({
 }
 
 export default function PortfolioSections() {
-  const extra = PROJECTS.filter((p) =>
+  const extra: ProjectCard[] = PROJECTS.filter((p) =>
     [
       "kritim-mind-tech-platform",
       "mirayas-construction-platform",
       "pahadi-research-cloud-platform",
     ].includes(p.id),
-  );
+  ).map((p) => ({
+    title: p.title,
+    kind: p.category.toUpperCase(),
+    visual: "platform",
+    description: p.description,
+    technology: p.tags.join(" · "),
+    role: "Software development",
+    url: p.liveUrl ?? null,
+    github: p.githubUrl ?? null,
+    paper: null,
+  }));
+  const otherProjects: ProjectCard[] = [...moreWorks, ...extra];
   return (
     <>
       <section id="work" className="work-section container">
@@ -68,29 +83,14 @@ export default function PortfolioSections() {
             <em>Thoughtful experiments.</em>
           </p>
         </div>
-        <ProjectList projects={works} />
-        <details className="additional-work">
+        <ProjectList projects={featuredWorks} />
+        <details className="more-work">
           <summary>
-            More engineering &amp; AI work <span>+</span>
+            <span className="more-work-closed">View more projects ({otherProjects.length})</span>
+            <span className="more-work-open">Show fewer projects</span>
+            <ChevronDown size={18} aria-hidden="true" />
           </summary>
-          <div className="extra-grid">
-            {extra.map((p) => (
-              <article key={p.id} className="extra-project">
-                <h3>{p.title}</h3>
-                <p>{p.description}</p>
-                <p className="small-note">
-                  {p.tags.join(" · ")}
-                  <br />
-                  My role: Software development
-                </p>
-                {p.liveUrl && (
-                  <a className="text-link" href={p.liveUrl}>
-                    View Project <ArrowUpRight size={15} />
-                  </a>
-                )}
-              </article>
-            ))}
-          </div>
+          <ProjectList projects={otherProjects} startIndex={featuredWorks.length} />
         </details>
       </section>
 
@@ -101,7 +101,7 @@ export default function PortfolioSections() {
               <p className="eyebrow">03 / QUESTIONS WORTH EXPLORING</p>
               <h2>
                 Research &amp;
-                <br />
+                {" "}
                 <em>Publications.</em>
               </h2>
             </div>
@@ -111,60 +111,100 @@ export default function PortfolioSections() {
               AI that works for Nepali learners.
             </p>
           </div>
-          <div className="interest-list">
+          <ul className="interest-list" aria-label="Research interests">
             {interests.map((s) => (
-              <span key={s}>{s}</span>
+              <li key={s}>{s}</li>
             ))}
-          </div>
-          <article className="publication" data-reveal>
-            <div className="publication-year">
-              <BookOpen size={32} aria-hidden="true" />
-              {publication.year}
-              <span>JOURNAL ARTICLE</span>
-            </div>
-            <div className="publication-body">
-              <p className="entry-type">AADIM JOURNAL · FIRST PUBLICATION</p>
+          </ul>
+          <article className="pub-card" data-reveal>
+            <aside className="pub-cover" aria-label="Publication details">
+              <span className="pub-cover-badge"><BookOpen size={14} aria-hidden="true" /> Peer-reviewed article</span>
+              <strong className="pub-cover-year">{publication.year}</strong>
+              <span className="pub-cover-venue">{publication.venue}</span>
+              <span className="pub-cover-meta">Vol. {publication.pages}</span>
+              <span className="pub-cover-doi">DOI {publication.doi}</span>
+            </aside>
+            <div className="pub-body">
+              <p className="entry-type">FIRST PUBLICATION · NLP × RAG × EDUCATION</p>
               <h3>{publication.title}</h3>
-              <p className="authors">{publication.authors}</p>
-              <p className="venue">
-                <em>{publication.venue}</em> · {publication.pages}
+              <p className="pub-authors">
+                <span className="pub-me">Bhandari, S.</span> &amp; Dhital, P.
               </p>
-              <p>
+              <p className="pub-abstract">
                 A RAG-based approach to algorithm learning using Romanized
                 Nepali and English. This work connects information retrieval,
                 Nepali NLP, and AI for education.
               </p>
-              <div className="research-results">
-                <span>
-                  <strong>0.79</strong> Precision at 5
-                </span>
-                <span>
-                  <strong>4.31/5</strong> Student satisfaction
-                </span>
+              <ol className="pub-pipeline" aria-label="Method pipeline">
+                {[
+                  ["Query", "English + Romanized Nepali"],
+                  ["Retrieve", "BM25 · FAISS · HNSW"],
+                  ["Re-rank", "Hybrid retrieval"],
+                  ["Generate", "GPT-4 · Llama 3"],
+                ].map(([step, detail], i) => (
+                  <li key={step} style={{ "--step": i } as CSSProperties}>
+                    <strong>{step}</strong>
+                    <span>{detail}</span>
+                  </li>
+                ))}
+              </ol>
+              <div className="pub-results">
+                {[
+                  { value: "0.79", label: "Precision at 5", fill: 79, icon: Target },
+                  { value: "4.31/5", label: "Student satisfaction", fill: 86, icon: Smile },
+                ].map(({ value, label, fill, icon: Icon }) => (
+                  <div key={label} className="pub-metric">
+                    <span className="pub-metric-icon" aria-hidden="true"><Icon size={18} /></span>
+                    <div>
+                      <strong>{value}</strong>
+                      <span>{label}</span>
+                      <span className="pub-meter" aria-hidden="true"><i style={{ width: `${fill}%` }} /></span>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <p className="small-note">
-                Reported results from the project evaluation.
-              </p>
-              <div className="entry-links">
-                <a href={publication.url}>
-                  Read Paper <ArrowUpRight size={16} />
+              <p className="small-note">Reported results from the project evaluation.</p>
+              <div className="pub-actions">
+                <a className="pub-primary" href={publication.url}>
+                  <FileText size={16} aria-hidden="true" /> Read Paper <ArrowUpRight size={16} aria-hidden="true" />
                 </a>
-                <a href={publication.url}>
-                  DOI: {publication.doi} <ArrowUpRight size={16} />
+                <a className="pub-secondary" href={SCHOLAR_URL} target="_blank" rel="noopener noreferrer">
+                  <GraduationCap size={16} aria-hidden="true" /> Google Scholar
                 </a>
                 <CitationButton />
               </div>
             </div>
           </article>
-          <a className="research-lab-link" data-reveal href={PERSONAL_INFO.lab}>
-            <span className="lab-emblem" aria-hidden="true"><FlaskConical size={32} /></span>
-            <span className="lab-copy">
-              <small>THE EXPERIMENTS CONTINUE</small>
-              <strong>Saroj Bhandari Labs</strong>
-              <span>Explore my lab on GitHub</span>
-            </span>
-            <ArrowUpRight size={23} aria-hidden="true" />
-          </a>
+        </div>
+      </section>
+
+      <section id="lab" className="lab-section" aria-labelledby="lab-title">
+        <div className="container">
+          <div className="lab-feature" data-reveal>
+            <div className="lab-feature-copy">
+              <p className="lab-kicker"><FlaskConical size={15} aria-hidden="true" /> THE EXPERIMENTS CONTINUE</p>
+              <h2 id="lab-title">Saroj Bhandari <em>Labs.</em></h2>
+              <p className="lab-lead">
+                My open workshop on GitHub. This is where I prototype ideas in
+                applied AI and share the code so others can learn from it and
+                build on it.
+              </p>
+              <ul className="lab-focus" aria-label="Lab focus areas">
+                {["RAG & retrieval", "Nepali NLP", "LLMs & agents", "Computer vision", "ML experiments"].map((area) => (
+                  <li key={area}>{area}</li>
+                ))}
+              </ul>
+              <div className="lab-actions">
+                <a className="lab-primary" href={PERSONAL_INFO.lab}>
+                  <GitHubIcon size={18} /> Explore the Lab <ArrowUpRight size={17} aria-hidden="true" />
+                </a>
+                <a className="lab-secondary" href={PERSONAL_INFO.github}>
+                  Personal GitHub <ArrowUpRight size={15} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+            <LabTerminal href={PERSONAL_INFO.lab} />
+          </div>
         </div>
       </section>
 
@@ -174,14 +214,19 @@ export default function PortfolioSections() {
         label="ALONG THE WAY"
         title="Experience"
       >
-        <div className="timeline">
+        <div className="xp-timeline">
           {experience.map((e) => (
-            <article className="experience-entry" key={e.company} data-reveal>
-              <p className="entry-type">{e.period}</p>
+            <article className="xp-card" key={e.company} data-reveal>
+              <div className="xp-meta">
+                <span className="xp-period">
+                  {e.period.includes("Present") && <span className="xp-live" aria-hidden="true" />}
+                  <CalendarDays size={14} aria-hidden="true" /> {e.period}
+                </span>
+                <span className="xp-location"><MapPin size={14} aria-hidden="true" /> {e.location}</span>
+              </div>
               <h3>{e.role}</h3>
               <Organizations names={e.organizations} />
-              <p className="location">{e.location}</p>
-              <ul>
+              <ul className="xp-points">
                 {e.points.map((p) => (
                   <li key={p}>{p}</li>
                 ))}
@@ -212,26 +257,7 @@ export default function PortfolioSections() {
               College
             </p>
           </div>
-          <div className="teaching-topics">
-            <span className="teaching-arrow" aria-hidden="true">
-              ↳
-            </span>
-            <RotatingText
-              className="teaching-rotation"
-              items={[
-                "Data Structures & Algorithms",
-                "Artificial Intelligence",
-                "Machine Learning",
-                "Python",
-                "Java",
-                "DBMS",
-                "Computer Vision",
-                "Agentic AI",
-              ]}
-            />
-            <div className="teaching-rule" />
-            <p>Foundations. Practice. Possibility.</p>
-          </div>
+          <TeachingShowcase />
           <details className="all-subjects">
             <summary>
               All subjects &amp; mentoring <span>+</span>
@@ -248,8 +274,6 @@ export default function PortfolioSections() {
           </details>
         </div>
       </section>
-
-      <TrainingGallery />
 
       <Section
         id="education"
@@ -312,6 +336,8 @@ export default function PortfolioSections() {
         </div>
       </section>
 
+      <TrainingGallery />
+
       <Section
         id="skills"
         number="07"
@@ -336,12 +362,15 @@ export default function PortfolioSections() {
           <p className="eyebrow">08 / ENTREPRENEURSHIP</p>
           <h2>
             Building
-            <br />
+            {" "}
             <em>beyond code.</em>
           </h2>
         </div>
         <div className="venture-copy">
-          <h3>Kritim Mind Technologies</h3>
+          <div className="venture-brand">
+            <Image src="/image/organizations/kritim-mind.png" alt="Kritim Mind Technologies logo" width={128} height={128} sizes="64px" />
+            <h3>Kritim Mind Technologies</h3>
+          </div>
           <p>
             As CEO of Kritim Mind Technologies Pvt. Ltd., I lead work across
             software, education technology, AI, and digital solutions. Through

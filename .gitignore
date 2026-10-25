@@ -44,3 +44,6 @@ next-env.d.ts
 .codex
 .next
 .openai
+
+# Local generated documents
+/output/

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { MotionToggle } from "./Motion";
@@ -7,6 +8,7 @@ const sections = [
   "About",
   "Work",
   "Research",
+  "Lab",
   "Experience",
   "Teaching",
   "Contact",
@@ -67,6 +69,7 @@ export default function Navbar() {
     <header ref={header} className={`site-header ${compact ? "compact" : ""}`}>
       <div className="nav-wrap">
         <a className="wordmark" href="#home" onClick={closeMenu}>
+          <Image className="nav-logo" src="/image/logo-mark.png" alt="" width={40} height={40} sizes="40px" priority />
           <span className="nav-name">Saroj <strong>Bhandari</strong><span className="nav-name-dot" aria-hidden="true">.</span></span>
         </a>
         <nav

@@ -109,15 +109,6 @@ const latestTrainingPhotos = [
     cropTop: 0,
     cropBottom: 0,
   },
-  {
-    src: "/image/training/ai-workshop-8.webp",
-    title: "From AI concepts to research",
-    alt: "A classroom workshop on AI for research, with students facing the presenter and shared display.",
-    width: 1200,
-    height: 1600,
-    cropTop: 0,
-    cropBottom: 0,
-  },
 ];
 
 const earlierTrainingPhotos = [

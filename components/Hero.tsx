@@ -1,13 +1,16 @@
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight, BrainCircuit, Code2, GraduationCap, Rocket } from "lucide-react";
+import { ArrowDown, ArrowUpRight, BrainCircuit, Code2, FlaskConical, GraduationCap, Mail, Rocket } from "lucide-react";
 import { PERSONAL_INFO } from "@/data/portfolioData";
+import { GitHubIcon, LinkedInIcon, XIcon } from "./SocialIcons";
 import { SCHOLAR_URL } from "@/data/seo";
 import { RotatingText } from "./Motion";
-import KnowledgeNetwork from "./KnowledgeNetwork";
 
 export default function Hero() {
   return (
     <section id="home" className="hero container">
+      <a className="hero-main-photo" href="#about" aria-label="About Saroj Bhandari">
+        <Image src="/image/profile.webp" alt="Saroj Bhandari" width={240} height={240} sizes="(max-width: 640px) 160px, 240px" priority />
+      </a>
       <div className="hero-copy">
         <p className="eyebrow">
           <span className="location-dot" /> KATHMANDU, NEPAL{" "}
@@ -16,9 +19,6 @@ export default function Hero() {
         <h1 className="hero-introduction">
           <span className="hero-greeting">Hi, I’m</span>{" "}
           <span className="hero-intro-row">
-            <a className="hero-portrait-link" href="#about" aria-label="A little about Saroj Bhandari">
-              <Image className="hero-portrait" src="/image/profile-icon.png" alt="" width={72} height={72} sizes="(max-width: 640px) 56px, 72px" />
-            </a>
             <span className="hero-name">Saroj Bhandari<span className="accent">.</span></span>
           </span>
         </h1>
@@ -57,29 +57,30 @@ export default function Hero() {
 
         </div>
         <div className="social-links">
-          <a href={PERSONAL_INFO.github}>
-            GitHub <ArrowUpRight size={13} />
+          <a href={PERSONAL_INFO.github} data-brand="github">
+            <GitHubIcon /> GitHub
           </a>
-          <a href={PERSONAL_INFO.lab}>
-            My Lab <ArrowUpRight size={13} />
+          <a href={PERSONAL_INFO.twitter} data-brand="x">
+            <XIcon /> X / Twitter
           </a>
-          <a href={PERSONAL_INFO.linkedin}>
-            LinkedIn <ArrowUpRight size={13} />
+          <a href={PERSONAL_INFO.linkedin} data-brand="linkedin">
+            <LinkedInIcon /> LinkedIn
           </a>
           <a
             href={SCHOLAR_URL}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Google Scholar <ArrowUpRight size={13} />
+            <GraduationCap size={16} aria-hidden="true" /> Scholar
           </a>
-
+          <a href={PERSONAL_INFO.lab}>
+            <FlaskConical size={16} aria-hidden="true" /> My Lab
+          </a>
           <a href={`mailto:${PERSONAL_INFO.email}`}>
-            Email <ArrowUpRight size={13} />
+            <Mail size={16} aria-hidden="true" /> Email
           </a>
         </div>
       </div>
-      <KnowledgeNetwork />
       <div className="hero-bottom">
         <span className="hero-manifesto"><span><Code2 size={18} aria-hidden="true" /> Engineering with <strong>purpose.</strong></span><span><BrainCircuit size={18} aria-hidden="true" /> Research with <strong>curiosity.</strong></span></span>
         <a href="#about">

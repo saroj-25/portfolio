@@ -36,9 +36,9 @@ export default function Home() {
             <span>01 / A LITTLE CONTEXT</span>
             <h2>
               Engineer.
-              <br />
+              {" "}
               Researcher.
-              <br />
+              {" "}
               <em>Always learning.</em>
             </h2>
             <figure className="about-photo">

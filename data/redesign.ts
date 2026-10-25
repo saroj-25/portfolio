@@ -104,6 +104,8 @@ export const works = [
     paper: null,
   },
 ];
+export const featuredWorks = works.filter((work) => work.visual === "chatbot" || work.visual === "education");
+export const moreWorks = works.filter((work) => !featuredWorks.includes(work));
 export const experience = [
   {
     role: "CEO",
@@ -143,7 +145,7 @@ export const experience = [
     company: "Texas International College | Aadim National College",
     organizations: ["texas-college", "aadim-college"] as const,
     location: "Nepal",
-    period: "2024-Present",
+    period: "2024 – Present",
     points: [
       "Teach undergraduate computer science, including AI, algorithms, and database systems.",
       "Guide students through programming, machine learning projects, and research.",

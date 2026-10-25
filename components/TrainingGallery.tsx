@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import { ArrowLeft, ArrowRight, Expand, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Expand, Presentation, X } from "lucide-react";
 import { trainingPhotos, trainingTopics } from "@/data/training";
+
+const PREVIEW_COUNT = 4;
 
 type Photo = (typeof trainingPhotos)[number];
 function PhotoImage({
@@ -102,44 +104,36 @@ export default function TrainingGallery() {
       aria-labelledby="training-title"
       data-reveal
     >
-      <div className="editorial-heading">
-        <div>
-          <p className="eyebrow">TRAINING SESSIONS / LEARNING BY DOING</p>
+      <div className="training-card">
+        <div className="training-card-copy">
+          <p className="training-badge"><Presentation size={14} aria-hidden="true" /> Training sessions</p>
           <h2 id="training-title">
-            From concepts
-            <br />
-            to <em>working code.</em>
+            From concepts to <em>working code.</em>
           </h2>
+          <p className="training-count">
+            <strong>10+</strong>
+            <span>professional classes conducted</span>
+          </p>
+          <p className="training-intro">
+            Hands-on classes in Python, machine learning, neural networks, RAG,
+            agentic AI, NLP, and LLMs.
+          </p>
+          <div className="training-topics" aria-label="Training topics">
+            {trainingTopics.map((topic) => (
+              <span key={topic}>{topic}</span>
+            ))}
+          </div>
         </div>
-        <p className="training-count">
-          <strong>10+</strong>
-          <span>professional classes conducted</span>
-        </p>
-      </div>
-      <p className="training-intro">
-        I have conducted more than 10 professional classes covering Python,
-        Python with AI, machine learning, neural networks, retrieval-augmented
-        generation (RAG), agentic AI, natural language processing (NLP), and
-        large language models (LLMs).
-      </p>
-      <div className="training-topics" aria-label="Training topics">
-        {trainingTopics.map((topic) => (
-          <span key={topic}>{topic}</span>
-        ))}
-      </div>
-      <div className="training-collage">
-        {trainingPhotos.slice(0, 5).map((_, index) => thumbnail(index))}
+        <div className="training-collage">
+          {trainingPhotos.slice(0, PREVIEW_COUNT).map((_, index) => thumbnail(index))}
+        </div>
       </div>
       <details className="gallery-collection">
         <summary><span>Explore all {trainingPhotos.length} photos</span><span aria-hidden="true">+</span></summary>
         <div className="training-photo-grid">
-          {trainingPhotos.slice(5).map((_, index) => thumbnail(index + 5))}
+          {trainingPhotos.slice(PREVIEW_COUNT).map((_, index) => thumbnail(index + PREVIEW_COUNT))}
         </div>
       </details>
-      <p className="training-gallery-note">
-        Classroom learning, live demonstrations, and online training. Select a
-        photo for a closer look.
-      </p>
       <dialog
         ref={dialog}
         className="training-lightbox"
