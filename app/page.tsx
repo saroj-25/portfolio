@@ -75,9 +75,10 @@ export default function Home() {
               Technologies.
             </p>
             <div className="about-pathways">
-              <a href="#work" data-tone="build"><span className="pathway-icon"><Code2 size={22} aria-hidden="true" /></span><strong>Build</strong><span>Useful software</span><ArrowRight className="pathway-arrow" size={18} aria-hidden="true" /></a>
-              <a href="#research" data-tone="explore"><span className="pathway-icon"><BrainCircuit size={22} aria-hidden="true" /></span><strong>Explore</strong><span>Applied AI &amp; ML</span><ArrowRight className="pathway-arrow" size={18} aria-hidden="true" /></a>
-              <a href="#teaching" data-tone="share"><span className="pathway-icon"><GraduationCap size={22} aria-hidden="true" /></span><strong>Share</strong><span>Knowledge that lasts</span><ArrowRight className="pathway-arrow" size={18} aria-hidden="true" /></a>
+              <p className="pathways-note">Three sides of my work.</p>
+              <a href="#work" data-tone="build"><span className="pathway-index" aria-hidden="true">01</span><span className="pathway-icon"><Code2 size={22} aria-hidden="true" /></span><strong>Build</strong><span>Useful software</span><ArrowRight className="pathway-arrow" size={18} aria-hidden="true" /></a>
+              <a href="#research" data-tone="explore"><span className="pathway-index" aria-hidden="true">02</span><span className="pathway-icon"><BrainCircuit size={22} aria-hidden="true" /></span><strong>Explore</strong><span>Applied AI &amp; ML</span><ArrowRight className="pathway-arrow" size={18} aria-hidden="true" /></a>
+              <a href="#teaching" data-tone="share"><span className="pathway-index" aria-hidden="true">03</span><span className="pathway-icon"><GraduationCap size={22} aria-hidden="true" /></span><strong>Share</strong><span>Knowledge that lasts</span><ArrowRight className="pathway-arrow" size={18} aria-hidden="true" /></a>
             </div>
             <a className="about-next" href="#work">
               See what I&rsquo;ve built <ArrowDown size={16} aria-hidden="true" />
