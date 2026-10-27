@@ -1,3 +1,6 @@
+"use client";
+
+import { useId, useState } from "react";
 import { ArrowUpRight, BrainCircuit, Globe, GraduationCap, MessagesSquare, PanelsTopLeft, Send, Smartphone, TrendingUp } from "lucide-react";
 
 export type ProjectCard = {
@@ -24,13 +27,27 @@ const cardArt: Record<string, { icon: typeof MessagesSquare; tagline: string }> 
 };
 
 export default function ProjectList({ projects, startIndex = 0 }: { projects: ProjectCard[]; startIndex?: number }) {
+  const id = useId();
+  const [expanded, setExpanded] = useState<Set<string>>(() => new Set());
+
+  function toggle(title: string) {
+    setExpanded((current) => {
+      const next = new Set(current);
+      if (next.has(title)) next.delete(title);
+      else next.add(title);
+      return next;
+    });
+  }
+
   return (
     <div className="work-grid">
       {projects.map((work, index) => {
         const art = cardArt[work.visual] ?? cardArt.platform;
         const Icon = art.icon;
+        const isExpanded = expanded.has(work.title);
+        const detailsId = `${id}-project-${index}`;
         return (
-          <article key={work.title} className={`work-card work-card-${work.visual}`} data-reveal data-reveal-delay={index % 2 * 90}>
+          <article key={work.title} className={`work-card work-card-${work.visual}`} data-expanded={isExpanded} data-reveal data-reveal-delay={index % 2 * 90}>
             <div className="work-card-banner">
               <span className="work-card-icon" aria-hidden="true"><Icon size={30} strokeWidth={1.6} /></span>
               <span className="work-card-tagline">{art.tagline}</span>
@@ -40,6 +57,18 @@ export default function ProjectList({ projects, startIndex = 0 }: { projects: Pr
               <p className="entry-type">{work.kind}</p>
               <h3>{work.title}</h3>
               <p className="work-card-text">{work.description}</p>
+              <button
+                type="button"
+                className="work-card-expand"
+                aria-expanded={isExpanded}
+                aria-controls={detailsId}
+                aria-label={`${isExpanded ? "Show less" : "Show details"}: ${work.title}`}
+                onClick={() => toggle(work.title)}
+              >
+                {isExpanded ? "Show less" : "Show details"}
+                <span aria-hidden="true">{isExpanded ? "−" : "+"}</span>
+              </button>
+              <div id={detailsId} className="work-card-details">
               {work.technology && (
                 <ul className="work-card-tech" aria-label="Technology">
                   {work.technology.split(" · ").map((tech) => <li key={tech}>{tech}</li>)}
@@ -62,6 +91,7 @@ export default function ProjectList({ projects, startIndex = 0 }: { projects: Pr
                     Paper <ArrowUpRight size={16} />
                   </a>
                 )}
+              </div>
               </div>
             </div>
           </article>
