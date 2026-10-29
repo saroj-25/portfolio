@@ -1,0 +1,20 @@
+.detail-header { max-width: 1100px; margin: auto; padding: 25px 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--line); }
+.detail-header > a { font-weight: 650; color: var(--ink); }
+.detail-header nav { display: flex; gap: 22px; font-size: 14px; }
+.detail-page { max-width: 800px; padding: 30px 28px 60px; margin: auto; overflow-wrap: anywhere; }
+.detail-breadcrumb { font-size: 13px; margin-bottom: 38px; color: var(--muted); }
+.detail-intro { border-bottom: 1px solid var(--line); padding-bottom: 28px; }
+.simple-portfolio .detail-page h1 { font-size: clamp(30px, 4vw, 46px); line-height: 1.18; margin: 16px 0 24px; }
+.detail-description { font-size: 18px; color: var(--muted); }
+.detail-byline { margin-block: 20px; font-size: 14px; }
+.detail-contents { display: flex; flex-wrap: wrap; gap: 10px 22px; padding: 24px 0; font-size: 14px; border-bottom: 1px solid var(--line); }
+.detail-contents strong { flex-basis: 100%; }
+.detail-page article > section { margin-top: 40px; scroll-margin-top: 24px; }
+.simple-portfolio .detail-page h2 { font-size: 27px; margin-bottom: 18px; }
+.detail-page p + p { margin-top: 16px; }
+.detail-page a { text-underline-offset: 4px; }
+.detail-page article a { text-decoration: underline; }
+.detail-links ul { padding-left: 20px; }
+.detail-links li + li { margin-top: 10px; }
+.detail-footer { display: flex; justify-content: space-between; gap: 20px; padding-top: 24px; margin-top: 50px; border-top: 1px solid var(--line); font-size: 14px; }
+@media (max-width: 640px) { .detail-page { padding-inline: 22px; } .detail-header { padding: 20px 22px; } .detail-header nav { gap: 16px; } .detail-description { font-size: 16px; } }

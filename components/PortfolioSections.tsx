@@ -94,6 +94,13 @@ export default function PortfolioSections() {
         </details>
       </section>
 
+      <section className="writing-note container" aria-labelledby="writing-title">
+        <p className="eyebrow">WRITING / PRACTICAL NOTES</p>
+        <h2 id="writing-title">Designing a RAG chatbot for college questions</h2>
+        <p>Source documents, retrieval, unanswered questions and evaluation — a technical note alongside my Aadim Chatbot project.</p>
+        <a className="text-link" href="/writing/rag-college-chatbot-design">Read the technical note <ArrowUpRight size={16} /></a>
+      </section>
+
       <section id="research" className="research-band">
         <div className="container" data-reveal>
           <div className="editorial-heading">

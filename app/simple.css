@@ -643,3 +643,8 @@
   }
   .simple-portfolio .about-next svg { animation: none; }
 }
+
+.simple-portfolio .writing-note { padding-block: 35px 55px; border-top: 1px solid var(--line); }
+.simple-portfolio .writing-note h2 { font-size: 27px; margin-block: 12px; }
+.simple-portfolio .writing-note p:not(.eyebrow) { max-width: 720px; color: var(--muted); }
+.simple-portfolio .writing-note .text-link { margin-top: 16px; }

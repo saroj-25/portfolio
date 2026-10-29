@@ -35,6 +35,7 @@ export const works = [
     title: "Aadim Chatbot",
     kind: "CONVERSATIONAL AI",
     visual: "chatbot",
+    caseStudy: "/projects/aadim-chatbot",
     description: aadimChatbot.description,
     technology: aadimChatbot.tags.join(" · "),
     role: "AI development",
@@ -56,6 +57,7 @@ export const works = [
   {
     title: "Kritim Guru / Preping Guru",
     visual: "education",
+    caseStudy: "/projects/kritim-guru",
     kind: "EDUCATION TECHNOLOGY",
     description:
       "An MCQ-based entrance preparation platform for +2 students in Nepal, available on web, Android, and desktop. Developed through Kritim Mind Technologies.",
@@ -68,6 +70,7 @@ export const works = [
   {
     title: "RAG Research for Data Structures & Algorithms",
     visual: "research",
+    caseStudy: "/research/rag-nepali-algorithm-learning",
     kind: "APPLIED AI RESEARCH",
     description:
       "Investigating retrieval-augmented generation for algorithm learning with English and Romanized Nepali code-mixed queries. The reported evaluation achieved P@5 = 0.79 and student satisfaction of 4.31/5.",

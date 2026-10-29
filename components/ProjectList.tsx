@@ -13,6 +13,7 @@ export type ProjectCard = {
   url: string | null;
   github: string | null;
   paper: string | null;
+  caseStudy?: string;
 };
 
 const cardArt: Record<string, { icon: typeof MessagesSquare; tagline: string }> = {
@@ -76,6 +77,7 @@ export default function ProjectList({ projects, startIndex = 0 }: { projects: Pr
               )}
               <p className="work-card-role">My role: {work.role}</p>
               <div className="entry-links">
+                {work.caseStudy && <a href={work.caseStudy}>Read case study <ArrowUpRight size={16} /></a>}
                 {work.url && (
                   <a className="work-card-cta" href={work.url}>
                     {work.visual === "research" ? "Read Research" : "Explore Project"} <ArrowUpRight size={16} />
